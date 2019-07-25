@@ -1,0 +1,33 @@
+//screen sizes
+$screensizeTablet: 750px;
+$screensizeLaptop:1050px;
+$screensizeDesktop:1500px;
+
+//global fontsize in px
+$fontsizeMobile: 16px;
+$fontsizeTablet: 20px;
+$fontsizeLaptop: 24px;
+$fontsizeDesktop: 28px;
+
+//fontsize in em for texts
+$fontsizeCopy: 1em;
+$fontsizeH4: 1.2em;
+$fontsizeH5: 1.4em;
+$fontsizeH3: 1.6em;
+$fontsizeH2: 1.7em;
+$fontsizeH1: 1.8em;
+
+//margins
+$marginPadding: 20px;
+$margin1: 2.25%;
+$margin2: $margin1*2;
+$margin3: $margin1*3;
+$margin4: $margin1*4;
+
+//element colors
+$colorMain: #000000;
+$colorHr: $colorMain;
+$colorAccordion: grey;
+$colorAccordionHighlight: $colorMain;
+$colorButton: $colorMain;
+$colorIconlist: $colorMain;

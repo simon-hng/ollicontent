@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="copy" label="Copy" description="Copy text">
+        <flux:form.option name="group" value="ContentElements" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-text_fields-24px.svg" />
+
+        <flux:field.text name="text" label="text" enableRichText="1" />
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    Copy
+</f:section>
+
+<f:section name="Main">
+    <div class="section__content copy">
+        <f:format.html>
+            {text}
+        </f:format.html>
+    </div>
+</f:section>
+
+</html>

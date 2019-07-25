@@ -1,0 +1,15 @@
+.headline {
+    &--section {
+        margin-bottom: $margin2;
+        font-size: $fontsizeH2;
+        text-align: center;
+    }
+}
+
+.h3,
+.h2,
+.h1 {
+    &--center {
+        text-align: center;
+    }
+}

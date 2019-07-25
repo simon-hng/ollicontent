@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="line" label="Separation line" description="Simple line separator">
+        <flux:form.option name="group" value="Structure" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-remove-24px.svg" />
+
+        <flux:field.input name="settings.bgcolor" label="Line color">
+            <flux:wizard.colorPicker />
+        </flux:field.input>
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    Line
+</f:section>
+
+<f:section name="Main">
+    <v:asset.style name="line" fluid="true">
+        .hr--{record.uid} {
+        <f:format.raw>
+            {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
+        </f:format.raw>
+        }
+    </v:asset.style>
+
+    <hr class="hr hr--{record.uid}">
+</f:section>
+
+</html>

@@ -1,0 +1,36 @@
+.button {
+    display: inline-block;
+    border-width: 0;
+    border-radius: 50px;
+    padding: 10px;
+    width: auto;
+    background-color: $colorButton;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+
+    &::before,
+    &::after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        margin: 0 10px;
+        height: 25px;
+        width: 25px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &--left {
+        text-align: left;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--right {
+        text-align: right;
+    }
+}

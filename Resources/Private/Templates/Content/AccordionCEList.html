@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="accordionceList" label="Accordion list" description="List with icon and text">
+
+        <flux:form.option name="group" value="AccordionContentElements" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-list-24px.svg" />
+
+        <flux:field.inline.fal name="images" required="1" minItems="1" maxItems="100" />
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    AccordionList
+</f:section>
+
+<f:section name="Main">
+    <div class="accordionCE">
+        <f:for each="{v:content.resources.fal(field: 'images')}" as="image">
+            <div class="accordionCE__icon">
+                <f:image class="accordionCE__icon__image" treatIdAsReference="1" src="{image.id}" title="{image.title}"
+                    alt="{slider.images.alternative}" />
+                <p class="accordionCE__icon__text">
+                    {image.description}
+                </p>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+
+</html>

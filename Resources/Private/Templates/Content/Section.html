@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="section" label="Section" description="Section with headline">
+        <flux:form.option name="group" value="Structure" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-view_array-24px.svg" />
+    </flux:form>
+
+    <flux:field.input name="headline" label="Title" />
+    <flux:field.input name="settings.color" label="Text color">
+        <flux:wizard.colorPicker />
+    </flux:field.input>
+    <flux:field.input name="settings.bgcolor" label="Background color">
+        <flux:wizard.colorPicker />
+    </flux:field.input>
+
+    <flux:grid>
+        <flux:grid.row>
+            <flux:grid.column name="content" label="content" colPos="1" />
+        </flux:grid.row>
+    </flux:grid>
+</f:section>
+
+<f:section name="Preview">
+
+</f:section>
+
+<f:section name="Main">
+    <v:asset.style name="section" fluid="true">
+        .section--{record.uid} {
+        <f:format.raw>
+            {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
+            {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
+        </f:format.raw>
+        }
+    </v:asset.style>
+
+    <section class="section section--{record.uid}">
+        <h2 class="headline headline--section">{headline}</h2>
+
+        <div class="section__wrapper">
+            <flux:content.render area="content" />
+        </div>
+    </section>
+</f:section>
+
+</html>

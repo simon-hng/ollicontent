@@ -1,0 +1,29 @@
+$swiper-button-margin: 30px;
+$swiper-color: #fff;
+
+.swiper {
+    &-pagination {
+        &-bullet {
+            &-active {
+                background-color: $swiper-color;
+            }
+        }
+    }
+    &-button {
+
+        &-next,
+        &-prev {
+            .swiper-button-disabled {
+                opacity: 0;
+            }
+        }
+
+        &-next {
+            right: $swiper-button-margin;
+        }
+
+        &-prev {
+            left: $swiper-button-margin;
+        }
+    }
+}

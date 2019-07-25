@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="imageslider" label="Image slider" description="Image and image slider dependent on size of items">
+
+        <flux:form.option name="group" value="ContentElements" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-image-24px.svg" />
+
+        <flux:field.inline.fal name="slider.images" required="1" minItems="1" maxItems="100" />
+
+        <flux:form.sheet name="slider" label="Slider settings" description="/" shortDescription="/">
+            <flux:field.checkbox name="navigation" label="Navigation" default="1" />
+            <flux:field.checkbox name="pagination" label="Pagination" default="0" />
+        </flux:form.sheet>
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    ImageSlider
+</f:section>
+
+<f:section name="Main">
+    <f:if condition="{slider.images}  == 1">
+        <f:then>
+            {v:content.resources.fal(field: 'slider.images') -> v:iterator.first() -> v:variable.set(name: 'image')}
+            <f:link.typolink parameter="{image.link}">
+                <div class="img">
+                    <f:image treatIdAsReference="1" src="{image.id}" title="{image.title}"
+                        alt="{slider.images.alternative}" />
+
+                    <div class="img__overlay">
+                        <div class="img__overlay__text">
+                            <h3 class="img__headline">{image.title}</h3>
+                            <p class="img__copy">{image.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </f:link.typolink>
+        </f:then>
+
+        <f:else>
+            <div class="section__content swiper-container">
+                <div class="swiper-wrapper">
+                    <f:for each="{v:content.resources.fal(field: 'slider.images')}" as="image">
+                        <div class="swiper-slide">
+                            <f:link.typolink parameter="{image.link}">
+                                <div class="img">
+                                    <f:image treatIdAsReference="1" src="{image.id}" title="{image.title}"
+                                        alt="{image.alternative}" />
+                                    <div class="img__overlay">
+                                        <div class="img__overlay__text">
+                                            <h3 class="img__headline">{image.title}</h3>
+                                            <p class="img__copy">{image.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:link.typolink>
+                        </div>
+                    </f:for>
+                </div>
+
+                <f:if condition="{navigation} == true">
+                    <f:then>
+                        <div class="swiper-pagination"></div>
+                    </f:then>
+                </f:if>
+
+                <f:if condition="{pagination} == true">
+                    <f:then>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </f:then>
+                </f:if>
+            </div>
+        </f:else>
+    </f:if>
+
+
+</f:section>
+
+</html>

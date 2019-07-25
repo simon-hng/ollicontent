@@ -1,0 +1,96 @@
+.accordion {
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    overflow: hidden;
+
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    &__label {
+        display: block;
+        position: relative;
+        padding: 1em 3em;
+        background: $colorAccordion;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        transition-duration: .5s;
+
+        //label icons
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            top: 1em;
+            width: 1.5em;
+            height: 1.5em;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            -webkit-transition: all .35s;
+            -o-transition: all .35s;
+            transition: all .35s;
+        }
+
+        &::before {
+            left: 1em;
+        }
+
+        &::after {
+            right: 1em;
+            //TODO: add icon svg;
+            background-image: url();
+        }
+    }
+
+    &>div {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: max-height .35s;
+        -o-transition: max-height .35s;
+        transition: max-height .35s;
+
+    }
+
+    &CE {
+        &__col {
+            border-bottom: 4px solid $colorAccordionHighlight;
+            padding: 2em 0;
+
+            &--noborder {
+                border: none;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            border-bottom: 4px solid $colorAccordionHighlight;
+            padding: 2em 1em;
+            align-items: center;
+
+            &__image {
+                margin-right: 2em;
+                width: 3em;
+            }
+        }
+
+        &__copy {
+            padding: 2em 1em;
+        }
+    }
+
+    input:checked {
+        &~.accordion__label {
+            background: $colorAccordionHighlight;
+        }
+
+        &~div {
+            max-height: 1000vh;
+        }
+    }
+}

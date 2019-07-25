@@ -1,0 +1,35 @@
+plugin.tx_olliprovider {
+	view {
+		templateRootPaths.0 = {$plugin.tx_olliprovider.view.templateRootPaths.0}
+		partialRootPaths.0 = {$plugin.tx_olliprovider.view.partialRootPaths.0}
+		layoutRootPaths.0 = {$plugin.tx_olliprovider.view.layoutRootPaths.0}
+	}
+}
+
+tt_content.image.20.maxW = 1920
+
+page {
+	meta {
+        description =
+        author = olli
+        keywords =
+        viewport = width=device-width, initial-scale=1
+        robots = index,follow
+        apple-mobile-web-app-capable = no
+        compatible = IE=edge
+    }
+	includeCSS {
+		LibSwiper = EXT:olliprovider/Resources/Public/Css/swiper.min.css 
+		styles = EXT:olliprovider/Resources/Public/Css/styles.css
+	}
+	includeJSFooterlibs {
+		LibSwiper = EXT:olliprovider/Resources/Public/Js/Dist/swiper.min.js
+	}
+	includeJSFooter {
+		main = EXT:olliprovider/Resources/Public/Js/Dist/main.min.js
+	}
+
+	config{
+		noPageTitle = 1
+	}
+}

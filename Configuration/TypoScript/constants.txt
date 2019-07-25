@@ -1,0 +1,8 @@
+plugin.tx_olliprovider.view {
+	templateRootPaths.0 = EXT:olliprovider/Resources/Private/Templates/
+	partialRootPaths.0 = EXT:olliprovider/Resources/Private/Partials/
+	layoutRootPaths.0 = EXT:olliprovider/Resources/Private/Layouts/
+}
+
+
+styles.content.imgtext.maxW = 1920

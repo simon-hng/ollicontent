@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="accordioncecopymedia" label="Accordion copy with image" description="Copy text with adjacent image">
+
+        <flux:form.option name="group" value="AccordionContentElements" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-vertical_split-24px.svg" />
+
+        <flux:field.checkbox name="border" label="Bottom border" default="0" />
+        <flux:field.text name="text" required="1" label="Text" />
+        <flux:field.file name="image" />
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    AccordionCopyMedia
+</f:section>
+
+<f:section name="Main">
+    <div class="accordionCE">
+        <div class="col accordionCE__col {f:if(condition: '{border}', else: 'accordionCE__col--noborder')}">
+            <div class="col__50">
+                <p>{text}</p>
+            </div>
+
+            <div class="col__50">
+                <f:if condition="{image}">
+                    <f:then>
+                        <f:image treatIdAsReference="1" src="{image}" />
+                    </f:then>
+                </f:if>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+</html>

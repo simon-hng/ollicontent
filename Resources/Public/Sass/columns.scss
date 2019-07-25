@@ -1,0 +1,58 @@
+.col {
+    display: flex;
+    flex-direction: column;
+
+    &__66,
+    &__50,
+    &__33,
+    &__25 {
+        margin-bottom: $marginPadding;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: $screensizeTablet) {
+        flex-direction: row;
+
+        &__66,
+        &__50,
+        &__33,
+        &__25 {
+            margin: 0 $marginPadding/2;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__66 {
+            width: 66%;
+        }
+
+        &__50 {
+            width: 50%;
+        }
+
+        &__33 {
+            width: 33%;
+        }
+
+        &__25 {
+            width: 25%;
+        }
+    }
+
+    .section__content {
+        margin-bottom: $marginPadding;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

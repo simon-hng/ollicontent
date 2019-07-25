@@ -1,0 +1,30 @@
+{
+  "name": "olli-design-baukasten",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "http://www.olli.design/",
+  "author": "Simon Huang",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "grunt": "^1.0.4",
+    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ts": "^6.0.0-beta.22",
+    "postcss": "^7.0.17",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/grunt",
+    "css": "./node_modules/.bin/grunt css",
+    "watch": "./node_modules/.bin/grunt watch"
+  },
+  "dependencies": {}
+}
