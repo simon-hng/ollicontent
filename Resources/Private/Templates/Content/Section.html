@@ -42,7 +42,11 @@
     </v:asset.style>
 
     <section class="section section--{record.uid}">
-        <h2 class="headline headline--section">{headline}</h2>
+        <f:if condition="{headline}">
+            <f:then>
+                <h2 class="headline headline--section">{headline}</h2>
+            </f:then>
+        </f:if>
 
         <div class="section__wrapper">
             <flux:content.render area="content" />

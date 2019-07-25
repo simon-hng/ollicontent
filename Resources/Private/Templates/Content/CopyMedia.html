@@ -5,26 +5,24 @@
 <f:layout name="Content" />
 
 <f:section name="Configuration">
-    <flux:form id="accordioncecopymedia" label="Accordion copy with image" description="Copy text with adjacent image">
+    <flux:form id="copymedia" label="Copy with image" description="Copy text with adjacent image">
 
-        <flux:form.option name="group" value="AccordionContentElements" />
+        <flux:form.option name="group" value="ContentElements" />
         <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
         <flux:form.option name="icon"
             value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-vertical_split-24px.svg" />
 
-        <flux:field.checkbox name="border" label="Bottom border" default="0" />
         <flux:field.text name="text" required="1" label="Text" />
         <flux:field.file name="image" />
     </flux:form>
 </f:section>
 
 <f:section name="Preview">
-    AccordionCopyMedia
+    CopyMedia
 </f:section>
 
 <f:section name="Main">
-    <div class="accordionCE">
-        <div class="col accordionCE__col {f:if(condition: '{border}', else: 'accordionCE__col--noborder')}">
+        <div class="section__content col">
             <div class="col__50">
                 <p>{text}</p>
             </div>
@@ -37,7 +35,6 @@
                 </f:if>
             </div>
         </div>
-    </div>
 </f:section>
 
 </html>
