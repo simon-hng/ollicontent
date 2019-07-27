@@ -3,4 +3,17 @@
         margin-left: $margin4;
         margin-right: $margin4;
     }
+
+    &-ruler {
+
+        &-before::before {
+            margin: 0;
+            border-top: 4px solid $colorFrameBorder;
+        }
+
+        &-after::after {
+            margin: 0;
+            border-bottom: 4px solid $colorFrameBorder;
+        }
+    }
 }
