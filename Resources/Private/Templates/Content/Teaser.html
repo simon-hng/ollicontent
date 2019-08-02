@@ -17,6 +17,13 @@
         <flux:field.input name="link" label="link">
             <flux:wizard.link />
         </flux:field.input>
+
+        <flux:form.sheet name="images" label="Image settings" description="Settings for images" shortDescription="/">
+            <flux:field.input name="settings.color" label="Text color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+            <flux:field.input name="settings.bgcolor" label="Background color in R, G, B, A" />
+        </flux:form.sheet>
     </flux:form>
 </f:section>
 
@@ -39,11 +46,20 @@
 </f:section>
 
 <f:section name="Main">
+    <v:asset.style name="img" fluid="true">
+        .teaser__overlay--{record.uid} {
+        <f:format.raw>
+            {f:if(condition: '{settings.bgcolor}', then: 'background-color:rgba({settings.bgcolor});')}
+            {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
+        </f:format.raw>
+        }
+    </v:asset.style>
+
     <f:link.typolink parameter="{link}">
         <div class="section__content teaser">
             <f:image treatIdAsReference="1" src="{image}" />
 
-            <div class="teaser__overlay">
+            <div class="teaser__overlay teaser__overlay--{record.uid}">
                 <div class="teaser__overlay__text">
                     <f:if condition="{headline}">
                         <f:then>
