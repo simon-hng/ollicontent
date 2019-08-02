@@ -14,18 +14,35 @@
 
         <flux:field.inline.fal name="slider.images" required="1" minItems="1" maxItems="100" />
 
-        <flux:form.sheet name="slider" label="Slider settings" description="/" shortDescription="/">
+        <flux:form.sheet name="slider" label="Slider settings" description="General settings for the slider"
+            shortDescription="/">
             <flux:field.checkbox name="navigation" label="Navigation" default="1" />
             <flux:field.checkbox name="pagination" label="Pagination" default="0" />
+        </flux:form.sheet>
+
+        <flux:form.sheet name="images" label="Image settings" description="Settings for images" shortDescription="/">
+            <flux:field.input name="settings.color" label="Text color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+            <flux:field.input name="settings.bgcolor" label="Background color in R, G, B, A" />
         </flux:form.sheet>
     </flux:form>
 </f:section>
 
 <f:section name="Preview">
-    ImageSlider
+    <b>image slider</b>
 </f:section>
 
 <f:section name="Main">
+    <v:asset.style name="img" fluid="true">
+        .img__overlay--{record.uid} {
+        <f:format.raw>
+            {f:if(condition: '{settings.bgcolor}', then: 'background-color:rgba({settings.bgcolor});')}
+            {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
+        </f:format.raw>
+        }
+    </v:asset.style>
+
     <f:if condition="{slider.images}  == 1">
         <f:then>
             {v:content.resources.fal(field: 'slider.images') -> v:iterator.first() -> v:variable.set(name: 'image')}
@@ -36,7 +53,7 @@
 
                     <f:if condition="{image.title} || {image.description}">
                         <f:then>
-                            <div class="img__overlay">
+                            <div class="img__overlay img__overlay--{record.uid}">
                                 <div class="img__overlay__text">
                                     <h3 class="img__headline">{image.title}</h3>
                                     <p class="img__copy">{image.description}</p>
@@ -55,13 +72,13 @@
                     <f:for each="{v:content.resources.fal(field: 'slider.images')}" as="image">
                         <div class="swiper-slide">
                             <f:link.typolink parameter="{image.link}">
-                                <div class="img">
+                                <div class="img  img--{record.uid}">
                                     <f:image treatIdAsReference="1" src="{image.id}" title="{image.title}"
                                         alt="{image.alternative}" />
 
                                     <f:if condition="{image.title} || {image.description}">
                                         <f:then>
-                                            <div class="img__overlay">
+                                            <div class="img__overlay img__overlay--{record.uid}">
                                                 <div class="img__overlay__text">
                                                     <h3 class="img__headline">{image.title}</h3>
                                                     <p class="img__copy">{image.description}</p>
