@@ -1,7 +1,7 @@
-plugin.tx_olliprovider.view {
-	templateRootPaths.0 = EXT:olliprovider/Resources/Private/Templates/
-	partialRootPaths.0 = EXT:olliprovider/Resources/Private/Partials/
-	layoutRootPaths.0 = EXT:olliprovider/Resources/Private/Layouts/
+plugin.tx_ollicontent.view {
+	templateRootPaths.0 = EXT:ollicontent/Resources/Private/Templates/
+	partialRootPaths.0 = EXT:ollicontent/Resources/Private/Partials/
+	layoutRootPaths.0 = EXT:ollicontent/Resources/Private/Layouts/
 }
 
 

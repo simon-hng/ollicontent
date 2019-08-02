@@ -1,7 +1,7 @@
 <?php
 
 /***************************************************************
- * Extension Manager/Repository config file for ext "Olli.Olliprovider".
+ * Extension Manager/Repository config file for ext "Olli.Ollicontent".
  *
  * Auto generated 27-12-2018 17:49
  *

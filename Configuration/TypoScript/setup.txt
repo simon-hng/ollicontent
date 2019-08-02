@@ -1,8 +1,8 @@
-plugin.tx_olliprovider {
+plugin.tx_ollicontent {
 	view {
-		templateRootPaths.0 = {$plugin.tx_olliprovider.view.templateRootPaths.0}
-		partialRootPaths.0 = {$plugin.tx_olliprovider.view.partialRootPaths.0}
-		layoutRootPaths.0 = {$plugin.tx_olliprovider.view.layoutRootPaths.0}
+		templateRootPaths.0 = {$plugin.tx_ollicontent.view.templateRootPaths.0}
+		partialRootPaths.0 = {$plugin.tx_ollicontent.view.partialRootPaths.0}
+		layoutRootPaths.0 = {$plugin.tx_ollicontent.view.layoutRootPaths.0}
 	}
 }
 
@@ -19,14 +19,14 @@ page {
         compatible = IE=edge
     }
 	includeCSS {
-		LibSwiper = EXT:olliprovider/Resources/Public/Css/swiper.min.css 
-		styles = EXT:olliprovider/Resources/Public/Css/styles.css
+		LibSwiper = EXT:ollicontent/Resources/Public/Css/swiper.min.css 
+		styles = EXT:ollicontent/Resources/Public/Css/styles.css
 	}
 	includeJSFooterlibs {
-		LibSwiper = EXT:olliprovider/Resources/Public/Js/Dist/swiper.min.js
+		LibSwiper = EXT:ollicontent/Resources/Public/Js/Dist/swiper.min.js
 	}
 	includeJSFooter {
-		main = EXT:olliprovider/Resources/Public/Js/Dist/main.min.js
+		main = EXT:ollicontent/Resources/Public/Js/Dist/main.min.js
 	}
 
 	config{
