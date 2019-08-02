@@ -8,7 +8,8 @@
     <flux:form id="teaser" label="Bild teaser" description="Image with overlay on hover">
         <flux:form.option name="group" value="ContentElements" />
         <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
-        <flux:form.option name="icon" value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-collections-24px.svg"/>
+        <flux:form.option name="icon"
+            value="EXT:olliprovider/Resources/Public/Icons/Contentelements/baseline-collections-24px.svg" />
 
         <flux:field.file name="image" required="true" />
         <flux:field.input name="headline" label="Title" />
@@ -20,7 +21,21 @@
 </f:section>
 
 <f:section name="Preview">
-    Teaser
+    <b>Teaser</b>
+    <f:image treatIdAsReference="1" src="{image}" />
+    <f:if condition="{headline}">
+        <f:then>
+            <h3 class="teaser__headline">{headline}</h3>
+        </f:then>
+    </f:if>
+
+    <f:if condition="{text}">
+        <f:then>
+            <p class="teaser__copy">
+                {text}
+            </p>
+        </f:then>
+    </f:if>
 </f:section>
 
 <f:section name="Main">

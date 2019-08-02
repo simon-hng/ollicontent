@@ -18,23 +18,37 @@
 </f:section>
 
 <f:section name="Preview">
-    CopyMedia
+    <b>copy media</b>
+
+    <div style="display: flex; justify-content: space-between;">
+        <div style="width: 49%">
+            <p>{text}</p>
+        </div>
+
+        <div style="width: 49%">
+            <f:if condition="{image}">
+                <f:then>
+                    <f:image treatIdAsReference="1" src="{image}" />
+                </f:then>
+            </f:if>
+        </div>
+    </div>
 </f:section>
 
 <f:section name="Main">
-        <div class="section__content col">
-            <div class="col__50">
-                <p>{text}</p>
-            </div>
-
-            <div class="col__50">
-                <f:if condition="{image}">
-                    <f:then>
-                        <f:image treatIdAsReference="1" src="{image}" />
-                    </f:then>
-                </f:if>
-            </div>
+    <div class="section__content col">
+        <div class="col__50">
+            <p>{text}</p>
         </div>
+
+        <div class="col__50">
+            <f:if condition="{image}">
+                <f:then>
+                    <f:image treatIdAsReference="1" src="{image}" />
+                </f:then>
+            </f:if>
+        </div>
+    </div>
 </f:section>
 
 </html>
