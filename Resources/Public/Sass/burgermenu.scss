@@ -1,0 +1,85 @@
+.burger {
+    position: fixed;
+    top: $margin2;
+    right: $margin2;
+    height: 1.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    z-index: 9999;
+
+    &__layer {
+        position: absolute;
+        display: block;
+        height: .2rem;
+        width: 100%;
+        background-color: #fff;
+        transition-duration: .25s;
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(2) {
+            top: 50%;
+        }
+
+        &:nth-child(3) {
+            top: 100%;
+        }
+    }
+
+    @media screen and (min-width: $screensizeTablet) {
+        top: $margin2;
+        right: $margin4;
+    }
+
+    &-checkbox {
+        display: none;
+    }
+}
+
+.nav {
+    top: -100vh;
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    transition-duration: .5s;
+    z-index: 100;
+
+    &__list {
+        width: 50%;
+        list-style: none;
+        text-align: center;
+    }
+}
+
+.burger-checkbox:checked {
+    ~.burger {
+        .burger__layer {
+            background-color: #0000FF;
+
+            &:nth-child(1) {
+                top: 50%;
+                transform: rotate(135deg);
+            }
+
+            &:nth-child(2) {
+                top: 50%;
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(3) {
+                top: 50%;
+                transform: rotate(135deg);
+            }
+        }
+    }
+
+    ~.nav {
+        top: 0;
+    }
+}

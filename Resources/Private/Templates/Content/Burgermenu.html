@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="burgermenu" label="Burger menu" description="Burger with menu">
+        <flux:form.option name="group" value="Partials" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-menu-24px.svg" />
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    <b>Burger menu</b>
+</f:section>
+
+<f:section name="Main">
+    <input class="burger-checkbox" type="checkbox" name="burger-checkbox" id="burgermenu">
+
+    <label class="burger" for="burgermenu">
+        <span class="burger__layer"></span>
+        <span class="burger__layer"></span>
+        <span class="burger__layer"></span>
+    </label>
+
+    <nav class="nav">
+        <v:menu class="nav__list" />
+    </nav>
+</f:section>
+
+</html>
