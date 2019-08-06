@@ -12,6 +12,12 @@
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-menu-24px.svg" />
 
         <flux:field.file name="logo" />
+
+        <flux:grid>
+            <flux:grid.row>
+                <flux:grid.column name="pages" label="pages" colPos="1" />
+            </flux:grid.row>
+        </flux:grid>
     </flux:form>
 </f:section>
 
@@ -33,7 +39,7 @@
     </label>
 
     <nav class="nav">
-        <v:menu class="nav__list" />
+        <flux:content.render area="pages" />
     </nav>
 </f:section>
 
