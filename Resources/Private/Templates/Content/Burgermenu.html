@@ -10,6 +10,8 @@
         <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
         <flux:form.option name="icon"
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-menu-24px.svg" />
+
+        <flux:field.file name="logo" />
     </flux:form>
 </f:section>
 
@@ -18,6 +20,10 @@
 </f:section>
 
 <f:section name="Main">
+    <f:if condition="{logo}">
+        <f:image class="logo" treatIdAsReference="1" src="{logo}" />
+    </f:if>
+
     <input class="burger-checkbox" type="checkbox" name="burger-checkbox" id="burgermenu">
 
     <label class="burger" for="burgermenu">
