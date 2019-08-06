@@ -32,7 +32,7 @@
 </f:section>
 
 <f:section name="Main">
-    <v:asset.style name="button" fluid="true">
+    <v:asset.style name="button{record.uid}" fluid="true">
         .button--{record.uid} {
         <f:format.raw>
             {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}

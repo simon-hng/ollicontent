@@ -34,7 +34,7 @@
 </f:section>
 
 <f:section name="Main">
-    <v:asset.style name="img" fluid="true">
+    <v:asset.style name="img{record.uid}" fluid="true">
         .img__overlay--{record.uid} {
         <f:format.raw>
             {f:if(condition: '{settings.bgcolor}', then: 'background-color:rgba({settings.bgcolor});')}
