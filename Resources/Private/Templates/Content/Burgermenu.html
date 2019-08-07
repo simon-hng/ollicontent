@@ -59,8 +59,19 @@
                 background-color:{settings.colorActive};
             </f:format.raw>
             }
+
+            .burger--active .burger__layer{
+            <f:format.raw>
+                background-color:{settings.colorActive};
+            </f:format.raw>
+            }
         </f:if>
     </v:asset.style>
+
+    <v:asset.script name="burgerScript{record.uid}" fluid="1">
+        var headerLogo = '{logo}';
+        var headerLogoActive = '{logoActive}';
+    </v:asset.script>
 
     <f:if condition="{logo}">
         <f:link.typolink parameter="{link}">
