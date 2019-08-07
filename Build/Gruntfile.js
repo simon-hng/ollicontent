@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                 tasks: ['sass']
             },
             scripts: {
-                files: '<%= paths.js %>**/*.js',
+                files: '<%= paths.js %>Src/**/*.js',
                 tasks: ['scripts']
             }
         }
