@@ -33,6 +33,15 @@
     <b>image slider</b>
 </f:section>
 
+<f:section name="ImgOverlay">
+    <div class="img__overlay img__overlay--{uid}">
+        <div class="img__overlay__text">
+            <h3 class="img__headline">{title}</h3>
+            <p class="img__copy">{description}</p>
+        </div>
+    </div>
+</f:section>
+
 <f:section name="Main">
     <v:asset.style name="img{record.uid}" fluid="true">
         .img__overlay--{record.uid} {
@@ -52,16 +61,9 @@
                         alt="{slider.images.alternative}" />
 
                     <f:if condition="{image.title} || {image.description}">
-                        <f:then>
-                            <div class="img__overlay img__overlay--{record.uid}">
-                                <div class="img__overlay__text">
-                                    <h3 class="img__headline">{image.title}</h3>
-                                    <p class="img__copy">{image.description}</p>
-                                </div>
-                            </div>
-                        </f:then>
+                        <f:render section="ImgOverlay"
+                            arguments="{uid: record.uid, title: image.title, description: image.description}" />
                     </f:if>
-
                 </div>
             </f:link.typolink>
         </f:then>
@@ -77,16 +79,9 @@
                                         alt="{image.alternative}" />
 
                                     <f:if condition="{image.title} || {image.description}">
-                                        <f:then>
-                                            <div class="img__overlay img__overlay--{record.uid}">
-                                                <div class="img__overlay__text">
-                                                    <h3 class="img__headline">{image.title}</h3>
-                                                    <p class="img__copy">{image.description}</p>
-                                                </div>
-                                            </div>
-                                        </f:then>
+                                        <f:render section="ImgOverlay"
+                                            arguments="{uid: record.uid, title: image.title, description: image.description}" />
                                     </f:if>
-
                                 </div>
                             </f:link.typolink>
                         </div>
@@ -94,22 +89,16 @@
                 </div>
 
                 <f:if condition="{navigation} == true">
-                    <f:then>
-                        <div class="swiper-pagination"></div>
-                    </f:then>
+                    <div class="swiper-pagination"></div>
                 </f:if>
 
                 <f:if condition="{pagination} == true">
-                    <f:then>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </f:then>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </f:if>
             </div>
         </f:else>
     </f:if>
-
-
 </f:section>
 
 </html>
