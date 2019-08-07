@@ -11,7 +11,25 @@
         <flux:form.option name="icon"
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-menu-24px.svg" />
 
-        <flux:field.file name="logo" />
+        <flux:form.sheet name="logo" label="Logo settings" description="Set the logo, logo when active and link"
+            shortDescription="/">
+            <flux:field.file name="logo" label="logo" />
+            <flux:field.file name="logoActive" label="logo active" />
+            <flux:field.input name="link" label="link">
+                <flux:wizard.link />
+            </flux:field.input>
+        </flux:form.sheet>
+
+        <flux:form.sheet name="colors" label="Color settings"
+            description="Set the color of the Burger when active, on scroll, etc" shortDescription="/">
+            <flux:field.input name="settings.color" label="Burger color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+
+            <flux:field.input name="settings.colorActive" label="Burger color active">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+        </flux:form.sheet>
 
         <flux:grid>
             <flux:grid.row>
@@ -26,13 +44,33 @@
 </f:section>
 
 <f:section name="Main">
+    <v:asset.style name="burger{record.uid}" fluid="true">
+        <f:if condition="{settings.color}">
+            .burger--{record.uid} .burger__layer{
+            <f:format.raw>
+                background-color:{settings.color};
+            </f:format.raw>
+            }
+        </f:if>
+
+        <f:if condition="{settings.colorActive}">
+            .burger-checkbox:checked ~.burger--{record.uid} .burger__layer {
+            <f:format.raw>
+                background-color:{settings.colorActive};
+            </f:format.raw>
+            }
+        </f:if>
+    </v:asset.style>
+
     <f:if condition="{logo}">
-        <f:image class="logo" treatIdAsReference="1" src="{logo}" />
+        <f:link.typolink parameter="{link}">
+            <f:image class="logo" treatIdAsReference="1" src="{logo}" />
+        </f:link.typolink>
     </f:if>
 
     <input class="burger-checkbox" type="checkbox" name="burger-checkbox" id="burgermenu">
 
-    <label class="burger" for="burgermenu">
+    <label class="burger burger--{record.uid}" for="burgermenu">
         <span class="burger__layer"></span>
         <span class="burger__layer"></span>
         <span class="burger__layer"></span>
