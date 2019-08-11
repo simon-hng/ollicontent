@@ -1,7 +1,10 @@
+$burgerMargin: 4.5vw;
+$burgerMarginDesktop: 9vw;
+
 .burger {
     position: fixed;
-    top: $margin2;
-    right: $margin2;
+    top: $burgerMargin;
+    right: $burgerMargin;
     height: 1.5rem;
     width: 2.5rem;
     cursor: pointer;
@@ -29,8 +32,8 @@
     }
 
     @media screen and (min-width: $screensizeTablet) {
-        top: $margin2;
-        right: $margin4;
+        top: $burgerMargin;
+        right: $burgerMarginDesktop;
     }
 
     &-checkbox {
