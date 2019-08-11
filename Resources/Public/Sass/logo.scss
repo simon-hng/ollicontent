@@ -1,7 +1,9 @@
+$logoMargin: 4.5vw;
+
 .logo {
     position: fixed;
     display: block;
-    top: $margin2;
+    top: $logoMargin;
     left: 50%;
     margin-left: -4rem;
     width: 8rem;

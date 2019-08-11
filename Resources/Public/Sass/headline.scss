@@ -1,6 +1,8 @@
+$headlineMargin: 1em;
+
 .headline {
     &--section {
-        margin-bottom: $margin2;
+        margin-bottom: $headlineMargin;
         font-size: $fontsizeH2;
         text-align: center;
     }

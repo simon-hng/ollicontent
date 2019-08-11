@@ -14,14 +14,14 @@
         color: white;
 
         &__text {
-            padding: $margin4;
+            padding: 2em;
             text-align: center;
         }
     }
 
     &__headline {
         font-size: $fontsizeH3;
-        margin-bottom: $margin1;
+        margin-bottom: 1em;
 
         &:only-child {
             margin-bottom: 0;
