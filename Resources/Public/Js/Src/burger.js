@@ -12,7 +12,9 @@ function headerColor() {
     var displayheight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     var scrollPos = document.body.getBoundingClientRect().top;
 
-    if (scrollPos < -displayheight) {
+    var logoPos = logo.offsetHeight + logo.getBoundingClientRect().top;
+
+    if (scrollPos < -displayheight + logoPos) { 
         logo.src = headerLogoActive;
         burger.classList.add(burgerActive);
     } else {
