@@ -1,7 +1,12 @@
 .frame {
     &-indent {
-        margin-left: $margin4;
-        margin-right: $margin4;
+        margin-left: $margin1;
+        margin-right: $margin1;
+
+        @media screen and (min-width: $screensizeTablet) {
+            margin-left: $margin3;
+            margin-right: $margin3;
+        }
     }
 
     &-ruler {

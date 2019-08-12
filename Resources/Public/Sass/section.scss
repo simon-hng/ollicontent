@@ -1,7 +1,7 @@
 .section {
-    padding: $margin2;
+    padding: 3em;
 
     @media screen and (min-width: $screensizeTablet) {
-        padding: $margin2 $margin4;
-    }
+        padding: 3em $margin3;
+    } 
 }

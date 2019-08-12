@@ -3,7 +3,7 @@ $headlineMargin: 1em;
 .headline {
     &--section {
         margin-bottom: $headlineMargin;
-        font-size: $fontsizeH2;
+        font-size: $fontsizeH1; 
         text-align: center;
     }
 }

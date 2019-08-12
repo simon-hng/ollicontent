@@ -4,14 +4,26 @@ body {
     @media screen and (min-width: $screensizeTablet) {
         font-size: $fontsizeTablet;
     }
-
-    @media screen and (min-width: $screensizeDesktop) {
-        font-size: $fontsizeDesktop;
-    }
 }
 
 img {
     display: block;
     width: 100%;
     height: auto;
+}
+
+h1 {
+    font-size: $fontsizeH1;
+}
+h2 {
+    font-size: $fontsizeH2;
+}
+h3 {
+    font-size: $fontsizeH3;
+}
+h4 {
+    font-size: $fontsizeH4;
+}
+h5 {
+    font-size: $fontsizeH5;
 }
