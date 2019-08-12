@@ -54,9 +54,20 @@ $burgerMarginDesktop: 9vw;
     z-index: 100;
 
     &__list {
-        width: 50%;
         list-style: none;
         text-align: center;
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: $fontsizeH1;
+        }
+    }
+}
+
+.lvl-1 {
+    a {
+        font-size: $fontsizeH2;
     }
 }
 

@@ -29,13 +29,15 @@
             <flux:field.input name="settings.colorActive" label="Burger color active">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-        </flux:form.sheet>
 
-        <flux:grid>
-            <flux:grid.row>
-                <flux:grid.column name="pages" label="pages" colPos="1" />
-            </flux:grid.row>
-        </flux:grid>
+            <flux:field.input name="settings.navColor" label="Navigation text color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+
+            <flux:field.input name="settings.bgColor" label="Navigation background color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+        </flux:form.sheet>
     </flux:form>
 </f:section>
 
@@ -66,6 +68,22 @@
             </f:format.raw>
             }
         </f:if>
+
+        <f:if condition="{settings.navColor}">
+            .nav__list a {
+            <f:format.raw>
+                color: {settings.navColor};
+            </f:format.raw>
+            }
+        </f:if>
+
+        <f:if condition="{settings.navColor}">
+            .nav {
+            <f:format.raw>
+                background-color: {settings.bgColor};
+            </f:format.raw>
+            }
+        </f:if>
     </v:asset.style>
 
     <v:asset.script name="burgerScript{record.uid}" fluid="1">
@@ -88,7 +106,7 @@
     </label>
 
     <nav class="nav">
-        <flux:content.render area="pages" />
+        <v:menu class="nav__list" forceClosingTag="1" tagName="ul" tagNameChildren="li" expandAll="true" levels="2" />
     </nav>
 </f:section>
 
