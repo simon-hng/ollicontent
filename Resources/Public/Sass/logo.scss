@@ -1,11 +1,18 @@
 $logoMargin: 4.5vw;
+$logoSize: 6rem;
+$logoSizeLarge: 8rem;
 
 .logo {
     position: fixed;
     display: block;
     top: $logoMargin;
     left: 50%;
-    margin-left: -4rem;
-    width: 8rem;
+    margin-left: -$logoSize/2;
+    width: $logoSize;
     z-index: 100;
+
+    @media screen and (min-width: $screensizeTablet) {
+        margin-left: -$logoSizeLarge/2;
+        width: $logoSizeLarge;
+    }
 }
