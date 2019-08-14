@@ -12,8 +12,6 @@
         <flux:form.option name="icon"
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-image-24px.svg" />
 
-        <flux:field.inline.fal name="slider.images" maxItems="100" />
-
         <flux:form.section name="images">
             <flux:form.object name="imageItem" label="Images">
                 <flux:field.file name="image" label="Image" allowed="jpg,png,svg" showThumbnails="1" />
@@ -43,6 +41,22 @@
 
 <f:section name="Preview">
     <b>image slider</b>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <f:for each="{images}" as="image">
+            <f:for each="{image}" as="imageData">
+
+                <div style="width: 30%; padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
+                    <f:image src="{imageData.image}" treatIdAsReference="1" />
+                    <f:if condition="{imageData.headline} || {imageData.description}">
+                        <f:render section="ImgOverlay"
+                            arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
+                    </f:if>
+                </div>
+
+            </f:for>
+        </f:for>
+    </div>
 </f:section>
 
 <f:section name="ImgOverlay">
@@ -76,8 +90,6 @@
                                 <f:render section="ImgOverlay"
                                     arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
                             </f:if>
-                            <f:comment>
-                            </f:comment>
                         </div>
                     </f:link.typolink>
 
@@ -100,8 +112,6 @@
                                             <f:render section="ImgOverlay"
                                                 arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
                                         </f:if>
-                                        <f:comment>
-                                        </f:comment>
                                     </div>
                                 </f:link.typolink>
                             </div>
