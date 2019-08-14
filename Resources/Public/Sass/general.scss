@@ -12,18 +12,27 @@ img {
     height: auto;
 }
 
+p,
+a {
+    font-size: $fontsizeCopy;
+}
+
 h1 {
     font-size: $fontsizeH1;
 }
+
 h2 {
     font-size: $fontsizeH2;
 }
+
 h3 {
     font-size: $fontsizeH3;
 }
+
 h4 {
     font-size: $fontsizeH4;
 }
+
 h5 {
     font-size: $fontsizeH5;
 }
