@@ -42,15 +42,15 @@
 <f:section name="Preview">
     <b>image slider</b>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div style="display: flex; flex-wrap: wrap;">
         <f:for each="{images}" as="image">
-            <f:for each="{image}" as="imageData">
+            <f:for each="{image}" as="image.imageItem">
 
                 <div style="width: 30%; padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
-                    <f:image src="{imageData.image}" treatIdAsReference="1" />
-                    <f:if condition="{imageData.headline} || {imageData.description}">
+                    <f:image src="{image.imageItem.image}" treatIdAsReference="1" />
+                    <f:if condition="{image.imageItem.headline} || {image.imageItem.description}">
                         <f:render section="ImgOverlay"
-                            arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
+                            arguments="{uid: record.uid, headline: image.imageItem.headline, description: image.imageItem.description}" />
                     </f:if>
                 </div>
 
@@ -80,20 +80,18 @@
     <f:if condition="{images -> f:count()} <= 1">
         <f:then>
             <f:for each="{images}" as="image">
-                <f:for each="{image}" as="imageData">
 
-                    <f:link.typolink parameter="{imageData.link}">
-                        <div class="img  img--{record.uid}">
+                <f:link.typolink parameter="{image.imageItem.link}">
+                    <div class="img  img--{record.uid}">
 
-                            <f:image src="{imageData.image}" treatIdAsReference="1" />
-                            <f:if condition="{imageData.headline} || {imageData.description}">
-                                <f:render section="ImgOverlay"
-                                    arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
-                            </f:if>
-                        </div>
-                    </f:link.typolink>
+                        <f:image src="{image.imageItem.image}" treatIdAsReference="1" />
+                        <f:if condition="{image.imageItem.headline} || {image.imageItem.description}">
+                            <f:render section="ImgOverlay"
+                                arguments="{uid: record.uid, headline: image.imageItem.headline, description: image.imageItem.description}" />
+                        </f:if>
+                    </div>
+                </f:link.typolink>
 
-                </f:for>
             </f:for>
         </f:then>
 
@@ -101,22 +99,20 @@
             <div class="section__content swiper-container">
                 <div class="swiper-wrapper">
                     <f:for each="{images}" as="image">
-                        <f:for each="{image}" as="imageData">
 
-                            <div class="swiper-slide">
-                                <f:link.typolink parameter="{imageData.link}">
-                                    <div class="img  img--{record.uid}">
+                        <div class="swiper-slide">
+                            <f:link.typolink parameter="{image.imageItem.link}">
+                                <div class="img  img--{record.uid}">
 
-                                        <f:image src="{imageData.image}" treatIdAsReference="1" />
-                                        <f:if condition="{imageData.headline} || {imageData.description}">
-                                            <f:render section="ImgOverlay"
-                                                arguments="{uid: record.uid, headline: imageData.headline, description: imageData.description}" />
-                                        </f:if>
-                                    </div>
-                                </f:link.typolink>
-                            </div>
+                                    <f:image src="{image.imageItem.image}" treatIdAsReference="1" />
+                                    <f:if condition="{image.imageItem.headline} || {image.imageItem.description}">
+                                        <f:render section="ImgOverlay"
+                                            arguments="{uid: record.uid, headline: image.imageItem.headline, description: image.imageItem.description}" />
+                                    </f:if>
+                                </div>
+                            </f:link.typolink>
+                        </div>
 
-                        </f:for>
                     </f:for>
                 </div>
 
