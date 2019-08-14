@@ -11,6 +11,14 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        >div {
+            margin-bottom: $marginPadding;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
     @media screen and (min-width: $screensizeTablet) {
