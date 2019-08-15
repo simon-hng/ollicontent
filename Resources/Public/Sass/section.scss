@@ -1,5 +1,6 @@
 $sectionMarginMobile: 1rem;
-$sectionMargin: 3rem;
+$sectionMargin: 5rem;
+$sectionHeadlineMargin: 2rem;
 
 .section {
     padding: 0 $sectionMarginMobile $sectionMargin $sectionMarginMobile;
@@ -9,8 +10,8 @@ $sectionMargin: 3rem;
     }
 
     &__headline {
-        margin-bottom: $sectionMargin;
+        margin-bottom: $sectionHeadlineMargin;
         font-size: $fontsizeH1;
         text-align: center;
     }
-}
+} 
