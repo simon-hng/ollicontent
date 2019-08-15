@@ -1,3 +1,9 @@
+$framespaceExtrasmall: 2rem;
+$framespaceSmall: 4rem;
+$framespaceMedium: 6rem;
+$framespaceLarge: 8rem;
+$framespaceExtralarge: 10rem;
+
 .frame {
     &-indent {
         margin-left: $margin1;
@@ -19,6 +25,70 @@
         &-after::after {
             margin: 0;
             border-bottom: 4px solid $colorFrameBorder;
+        }
+    }
+
+    &-space {
+        &-after {
+
+            &-extra-small,
+            &-small,
+            &-medium,
+            &-large,
+            &-extra-large {
+                margin-bottom: 0;
+            }
+
+            &-extra-small {
+                padding-bottom: $framespaceExtrasmall;
+            }
+
+            &-small {
+                padding-bottom: $framespaceSmall;
+            }
+
+            &-medium {
+                padding-bottom: $framespaceMedium;
+            }
+
+            &-large {
+                padding-bottom: $framespaceLarge;
+            } 
+
+            &-extra-large {
+                padding-bottom: $framespaceExtralarge;
+            }
+        }
+
+        &-before {
+
+            &-extra-small,
+            &-small,
+            &-medium,
+            &-large,
+            &-extra-large {
+                margin-top: 0;
+            }
+
+            &-extra-small {
+                padding-top: $framespaceExtrasmall;
+            }
+
+            &-small {
+                padding-top: $framespaceSmall;
+            }
+
+            &-medium {
+                padding-top: $framespaceMedium;
+            }
+
+            &-large {
+                padding-top: $framespaceLarge;
+            }
+
+            &-extra-large {
+                padding-top: $framespaceExtralarge;
+            }
         }
     }
 }
