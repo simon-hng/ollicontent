@@ -28,11 +28,14 @@
             shortDescription="/">
             <flux:field.checkbox name="navigation" label="Pagination points" default="1" />
             <flux:field.checkbox name="pagination" label="Navigation arrows" default="0" />
+            <flux:field.input name="autoplay" label="Autoplay dauer" />
+            <flux:field.select name="effect" label="Überblendungs effekt" renderType="selectSingle"
+                items="{0:{0:'Slide',1:'slide'},1:{0:'Fade',1:'fade'}}" />
+            <flux:field.file name="settings.arrow" label="Arrow svg pointing right" allowed="jpg,png,gif,svg" />
         </flux:form.sheet>
 
         <flux:form.sheet name="settings.slider" label="Image settings" description="Settings for images"
             shortDescription="/">
-            <flux:field.file name="settings.arrow" label="Arrow svg pointing right" allowed="jpg,png,gif,svg" />
             <flux:field.input name="settings.color" label="Text color">
                 <flux:wizard.colorPicker />
             </flux:field.input>
@@ -87,6 +90,35 @@
             }
         </f:if>
     </v:asset.style>
+
+    <v:asset.script name="imgScript{record.uid}" fluid="1">
+        var sliderEffect = '{effect}';
+        <f:if condition="{autoplay}">var autoplayDuration = {autoplay};</f:if>
+
+        var swiper = new Swiper('.swiper-container--{record.uid}', {
+        effect: sliderEffect,
+        <f:if condition="{autoplay}">
+            autoplay: {
+            delay: autoplayDuration,
+            disableOnInteraction: false,
+            },
+        </f:if>
+
+        <f:if condition="{pagination}">
+            pagination: {
+            el: '.swiper-pagination',
+            },
+        </f:if>
+
+        <f:if condition="{navigation}">
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+        </f:if>
+        });
+    </v:asset.script>
+
     <f:if condition="{images -> f:count()} <= 1">
         <f:then>
             <f:for each="{images}" as="image">
@@ -106,7 +138,7 @@
         </f:then>
 
         <f:else>
-            <div class="section__content swiper-container">
+            <div class="section__content swiper-container--{record.uid}">
                 <div class="swiper-wrapper">
                     <f:for each="{images}" as="image">
 
