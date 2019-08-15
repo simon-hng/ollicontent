@@ -1,6 +1,9 @@
 var logo = document.querySelector('.logo');
 
+/* css checkbox hack */
+var burgerCheckbox = document.querySelector('.burger-checkbox');
 var burger = document.querySelector('.burger');
+var burgerNav = document.querySelector('.nav__list');
 var burgerActive = 'burger--active';
 
 var headerLogo;
@@ -14,7 +17,7 @@ function headerColor() {
 
     var logoPos = logo.offsetHeight + logo.getBoundingClientRect().top;
 
-    if (scrollPos < -displayheight + logoPos) { 
+    if (scrollPos < -displayheight + logoPos) {
         logo.src = headerLogoActive;
         burger.classList.add(burgerActive);
     } else {
@@ -23,6 +26,7 @@ function headerColor() {
     }
 }
 
-window.addEventListener('scroll', function () {
-    headerColor();
-});
+function toggleNav() {
+    burgerCheckbox.checked = false;
+}
+/* initiation in BurgerMenu.html */

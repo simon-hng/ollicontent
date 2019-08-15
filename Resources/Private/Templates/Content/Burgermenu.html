@@ -79,6 +79,12 @@
     <v:asset.script name="burgerScript{record.uid}" fluid="1">
         var headerLogo = '{logo}';
         var headerLogoActive = '{logoActive}';
+
+        window.addEventListener('scroll', function () {
+        headerColor();
+        });
+
+        burgerNav.addEventListener('click', toggleNav);
     </v:asset.script>
 
     <f:if condition="{logo}">
