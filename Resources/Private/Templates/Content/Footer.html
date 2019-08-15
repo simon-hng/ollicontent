@@ -45,17 +45,17 @@
 
 <f:section name="Main">
     <v:asset.style name="footer{record.uid}" fluid="true">
-        .footer--{record.uid} {
-        <f:format.raw>
-            {f:if(condition: '{colorBackground}', then: 'background-color: {colorBackground}')}
-        </f:format.raw>
-        }
+        <f:if condition="{colorBackground}">
+            .footer--{record.uid} {
+            background-color: {colorBackground};
+            }
+        </f:if>
 
-        .footer__item--{record.uid} {
-        <f:format.raw>
-            {f:if(condition: '{colorText}', then: 'color: {colorText};')}
-        </f:format.raw>
-        }
+        <f:if condition="{colorText}">
+            .footer__item--{record.uid} {
+            color: {colorText};
+            }
+        </f:if>
     </v:asset.style>
 
     <footer class="footer footer--{record.uid}">

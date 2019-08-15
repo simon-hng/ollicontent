@@ -33,11 +33,11 @@
 
 <f:section name="Main">
     <v:asset.style name="button{record.uid}" fluid="true">
-        .button--{record.uid} {
-        <f:format.raw>
-            {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
-        </f:format.raw>
-        }
+        <f:if condition="{settings.bgcolor}">
+            .button--{record.uid} {
+            background-color:{settings.bgcolor};
+            }
+        </f:if>
     </v:asset.style>
 
     <div class="section__content button-wrapper button--{settings.alignment}">

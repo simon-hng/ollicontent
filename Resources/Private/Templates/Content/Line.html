@@ -23,11 +23,11 @@
 
 <f:section name="Main">
     <v:asset.style name="line{record.uid}" fluid="true">
-        .hr--{record.uid} {
-        <f:format.raw>
-            {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
-        </f:format.raw>
-        }
+        <f:if condition="{settings.bgcolor}">
+            .hr--{record.uid} {
+            background-color:{settings.bgcolor};
+            }
+        </f:if>
     </v:asset.style>
 
     <hr class="hr hr--{record.uid}">
