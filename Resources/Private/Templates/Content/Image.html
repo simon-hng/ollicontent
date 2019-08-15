@@ -95,7 +95,7 @@
         var sliderEffect = '{effect}';
         <f:if condition="{autoplay}">var autoplayDuration = {autoplay};</f:if>
 
-        var swiper = new Swiper('.swiper-container--{record.uid}', {
+        var swiper{record.uid} = new Swiper('.swiper-container--{record.uid}', {
         effect: sliderEffect,
         <f:if condition="{autoplay}">
             autoplay: {
