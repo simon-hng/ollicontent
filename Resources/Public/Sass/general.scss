@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     font-size: $fontsizeMobileSmall;
 
     @media screen and (min-width: $screensizeMobile) {
@@ -16,10 +17,9 @@ img {
     height: auto;
 }
 
-p,
-a {
+p {
     font-size: $fontsizeCopy;
-}
+} 
 
 h1 {
     font-size: $fontsizeH1;
