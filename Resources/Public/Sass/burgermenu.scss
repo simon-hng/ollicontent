@@ -1,10 +1,10 @@
-$burgerMargin: 4.5vw;
-$burgerMarginDesktop: 9vw;
+$burgerMarginMobile: 1rem;
+$burgerMarginDesktop: 10vw;
 
 .burger {
     position: fixed;
-    top: $burgerMargin;
-    right: $burgerMargin;
+    top: $burgerMarginMobile;
+    right: $burgerMarginMobile;
     height: 1.5rem;
     width: 2.5rem;
     cursor: pointer;
@@ -32,7 +32,7 @@ $burgerMarginDesktop: 9vw;
     }
 
     @media screen and (min-width: $screensizeTablet) {
-        top: $burgerMargin;
+        top: $burgerMarginDesktop/2;
         right: $burgerMarginDesktop;
     }
 
@@ -83,12 +83,13 @@ $burgerMarginDesktop: 9vw;
 
             &:nth-child(2) {
                 top: 50%;
+                opacity: 0;
                 transform: rotate(45deg);
             }
 
             &:nth-child(3) {
                 top: 50%;
-                transform: rotate(135deg);
+                transform: rotate(45deg);
             }
         }
     }

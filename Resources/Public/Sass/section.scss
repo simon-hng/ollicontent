@@ -1,7 +1,16 @@
-.section {
-    padding: 3em;
+$sectionMarginMobile: 1rem;
+$sectionMargin: 3rem;
 
-    @media screen and (min-width: $screensizeTablet) {
-        padding: 3em $margin3;
-    } 
+.section {
+    padding: 0 $sectionMarginMobile $sectionMargin $sectionMarginMobile;
+
+    @media screen and (min-width: $screensizeLaptop) {
+        padding: 0 $margin3 $sectionMargin $margin3;
+    }
+
+    &__headline {
+        margin-bottom: $sectionMargin;
+        font-size: $fontsizeH1;
+        text-align: center;
+    }
 }

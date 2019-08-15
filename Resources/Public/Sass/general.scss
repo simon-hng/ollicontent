@@ -1,5 +1,9 @@
-body {
-    font-size: $fontsizeMobile;
+html, body {
+    font-size: $fontsizeMobileSmall;
+
+    @media screen and (min-width: $screensizeMobile) {
+        font-size: $fontsizeMobile;
+    }
 
     @media screen and (min-width: $screensizeTablet) {
         font-size: $fontsizeTablet;
