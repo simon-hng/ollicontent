@@ -97,6 +97,8 @@
 
         var swiper{record.uid} = new Swiper('.swiper-container--{record.uid}', {
         effect: sliderEffect,
+        autoHeight: true,
+        loop: true,
         <f:if condition="{autoplay}">
             autoplay: {
             delay: autoplayDuration,
