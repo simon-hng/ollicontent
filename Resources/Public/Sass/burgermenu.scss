@@ -1,5 +1,6 @@
 $burgerMarginMobile: 1rem;
-$burgerMarginDesktop: 10vw;
+$burgerMarginYDesktop: 5vh;
+$burgerMarginXDesktop: 10vw;
 
 .burger {
     position: fixed;
@@ -13,7 +14,7 @@ $burgerMarginDesktop: 10vw;
     &__layer {
         position: absolute;
         display: block;
-        height: .2rem;
+        height: 5px;
         width: 100%;
         background-color: #fff;
         transition-duration: .25s;
@@ -32,8 +33,8 @@ $burgerMarginDesktop: 10vw;
     }
 
     @media screen and (min-width: $screensizeTablet) {
-        top: $burgerMarginDesktop/2;
-        right: $burgerMarginDesktop;
+        top: $burgerMarginYDesktop;
+        right: $burgerMarginXDesktop;
     }
 
     &-checkbox {
