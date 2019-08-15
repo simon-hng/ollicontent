@@ -44,7 +44,11 @@
 
 <f:section name="Preview">
     <b>copy</b>
-    <f:format.html>{text}</f:format.html>
+    <f:for each="{copies}" as="content">
+        <div class="copy copy--{record.uid}">
+            <f:format.html>{content.item.text}</f:format.html>
+        </div>
+    </f:for>
 </f:section>
 
 <f:section name="Main">
