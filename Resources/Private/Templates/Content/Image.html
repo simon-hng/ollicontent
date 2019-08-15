@@ -26,8 +26,8 @@
         <!-- TODO rename confusing variable names -->
         <flux:form.sheet name="settings.slider" label="Slider settings" description="General settings for the slider"
             shortDescription="/">
-            <flux:field.checkbox name="navigation" label="Pagination points" default="1" />
-            <flux:field.checkbox name="pagination" label="Navigation arrows" default="0" />
+            <flux:field.checkbox name="pagination" label="Pagination points" default="0" />
+            <flux:field.checkbox name="navigation" label="Navigation arrows" default="1" />
             <flux:field.input name="autoplay" label="Autoplay dauer" />
             <flux:field.select name="effect" label="Überblendungs effekt" renderType="selectSingle"
                 items="{0:{0:'Slide',1:'slide'},1:{0:'Fade',1:'fade'}}" />
@@ -158,11 +158,11 @@
                     </f:for>
                 </div>
 
-                <f:if condition="{navigation} == true">
+                <f:if condition="{pagination} == true">
                     <div class="swiper-pagination"></div>
                 </f:if>
 
-                <f:if condition="{pagination} == true">
+                <f:if condition="{navigation} == true">
                     <div class="swiper-button-next swiper-button-next--{record.uid}"></div>
                     <div class="swiper-button-prev swiper-button-prev--{record.uid}"></div>
                 </f:if>
