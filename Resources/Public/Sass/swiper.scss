@@ -9,10 +9,13 @@ $swiper-color: #fff;
             }
         }
     }
+
     &-button {
 
         &-next,
         &-prev {
+            background-image: url(../Icons/Global/arrow.svg);
+
             .swiper-button-disabled {
                 opacity: 0;
             }
@@ -23,6 +26,7 @@ $swiper-color: #fff;
         }
 
         &-prev {
+            transform: scale(-1, 1);
             left: $swiper-button-margin;
         }
     }
