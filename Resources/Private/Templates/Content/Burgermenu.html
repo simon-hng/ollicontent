@@ -64,14 +64,12 @@
         </f:if>
 
         <f:if condition="{settings.navColor}">
-            .nav__list a {
-            color: {settings.navColor};
-            }
-        </f:if>
-
-        <f:if condition="{settings.navColor}">
             .nav {
             background-color: {settings.bgColor};
+            }
+
+            .nav__list a {
+            color: {settings.navColor};
             }
         </f:if>
     </v:asset.style>
@@ -86,7 +84,6 @@
         });
 
         burgerNav.addEventListener('click', toggleNav);
-
     </v:asset.script>
 
     <f:if condition="{logo}">
