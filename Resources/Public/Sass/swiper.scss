@@ -1,11 +1,16 @@
-$swiper-button-margin: 30px;
-$swiper-color: #fff;
+$swiperButtonMargin: 10px;
+$swiperButtonMarginDesktop: 30px;
+$swiperColor: #fff;
 
 .swiper {
+    &-wrapper {
+        align-items: center;
+    }
+
     &-pagination {
         &-bullet {
             &-active {
-                background-color: $swiper-color;
+                background-color: $swiperColor;
             }
         }
     }
@@ -14,7 +19,15 @@ $swiper-color: #fff;
 
         &-next,
         &-prev {
+            width: 16px;
+            height: 25px;
+            background-size: contain;
             background-image: url(../Icons/Global/arrow.svg);
+
+            @media screen and (min-width: $screensizeTablet) {
+                width: 27px;
+                height: 44px;
+            }
 
             .swiper-button-disabled {
                 opacity: 0;
@@ -22,12 +35,20 @@ $swiper-color: #fff;
         }
 
         &-next {
-            right: $swiper-button-margin;
+            right: $swiperButtonMargin;
+
+            @media screen and (min-width: $screensizeTablet) {
+                right: $swiperButtonMarginDesktop;
+            }
         }
 
         &-prev {
             transform: scale(-1, 1);
-            left: $swiper-button-margin;
+            left: $swiperButtonMargin;
+
+            @media screen and (min-width: $screensizeTablet) {
+                left: $swiperButtonMarginDesktop;
+            }
         }
     }
 }
