@@ -45,7 +45,7 @@
 <f:section name="Preview">
     <b>copy</b>
     <f:for each="{copies}" as="content">
-        <div class="copy copy--{record.uid}">
+        <div style="padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
             <f:format.html>{content.item.text}</f:format.html>
         </div>
     </f:for>
@@ -59,11 +59,18 @@
             }
         </f:if>
 
-        .copy--{record.uid} {
-        color: {copy.text};
-        background-color: {copy.background};
-        padding: {copy.padding}rem;
-        }
+        <f:if condition="{copy.text || copy.background}">
+            .copy--{record.uid} {
+            color: {copy.text};
+            background-color: {copy.background};
+            }
+        </f:if>
+
+        <f:if condition="{copy.padding}">
+            .copy__text--{record.uid} {
+            padding: {copy.padding}rem;
+            }
+        </f:if>
     </v:asset.style>
 
     <v:asset.script name="copyScript{record.uid}" fluid="1">
@@ -72,7 +79,6 @@
 
         var swiper{record.uid} = new Swiper('.swiper-container--{record.uid}', {
         effect: sliderEffect,
-        autoHeight: true,
         loop: true,
         <f:if condition="{autoplay}">
             autoplay: {
@@ -98,9 +104,9 @@
 
     <f:if condition="{copies -> f:count()} <= 1">
         <f:then>
-            <div class="section__content">
+            <div class="section__content copy copy--{record.uid}">
                 <f:for each="{copies}" as="content">
-                    <div class="copy copy--{record.uid}">
+                    <div class="copy__text copy__text--{record.uid}">
                         <f:format.html>{content.item.text}</f:format.html>
                     </div>
                 </f:for>
@@ -108,11 +114,11 @@
         </f:then>
 
         <f:else>
-            <div class="section__content swiper-container swiper-container--{record.uid}">
+            <div class="section__content swiper-container swiper-container--{record.uid} copy copy--{record.uid}">
                 <div class="swiper-wrapper">
                     <f:for each="{copies}" as="content">
                         <div class="swiper-slide">
-                            <div class="copy copy--{record.uid}">
+                            <div class="copy__text copy__text--{record.uid}">
                                 <f:format.html>{content.item.text}</f:format.html>
                             </div>
                         </div>
