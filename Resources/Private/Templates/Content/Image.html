@@ -48,8 +48,9 @@
     <b>image slider</b>
 
     <div style="display: flex; flex-wrap: wrap;">
-        <f:for each="{images}" as="image">
-            <f:for each="{image}" as="image.imageItem">
+        <f:if condition="{images}">
+
+            <f:for each="{images}" as="image">
 
                 <div style="width: 30%; padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
                     <f:image src="{image.imageItem.image}" treatIdAsReference="1" />
@@ -60,7 +61,7 @@
                 </div>
 
             </f:for>
-        </f:for>
+        </f:if>
     </div>
 </f:section>
 
@@ -97,7 +98,6 @@
 
         var swiper{record.uid} = new Swiper('.swiper-container--{record.uid}', {
         effect: sliderEffect,
-        autoHeight: true,
         loop: true,
         <f:if condition="{autoplay}">
             autoplay: {

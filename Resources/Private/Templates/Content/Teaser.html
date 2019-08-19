@@ -29,7 +29,10 @@
 
 <f:section name="Preview">
     <b>Teaser</b>
-    <f:image treatIdAsReference="1" src="{image}" />
+    <f:if condition="{image}">
+        <f:image treatIdAsReference="1" src="{image}" />
+    </f:if>
+
     <f:if condition="{headline}">
         <f:then>
             <h3 class="teaser__headline">{headline}</h3>
