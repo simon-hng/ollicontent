@@ -1,3 +1,5 @@
+$frameColor: #000;
+
 $framespaceExtrasmall: 2rem;
 $framespaceSmall: 4rem;
 $framespaceMedium: 6rem;
@@ -19,12 +21,12 @@ $framespaceExtralarge: 10rem;
 
         &-before::before {
             margin: 0;
-            border-top: 4px solid $colorFrameBorder;
+            border-top: 4px solid $frameColor;
         }
 
         &-after::after {
             margin: 0;
-            border-bottom: 4px solid $colorFrameBorder;
+            border-bottom: 4px solid $frameColor;
         }
     }
 

@@ -1,7 +1,9 @@
+$hrColor: #000;
+
 .hr {
     display: block;
     margin: 0 auto;
     height: 0.3em;
     width: 4.5em;
-    background-color: $colorHr;
+    background-color: $hrColor;
 }

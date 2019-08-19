@@ -4,14 +4,14 @@ $screensizeTablet: 750px;
 $screensizeLaptop:1050px;
 $screensizeDesktop:1500px;
 
-//global fontsize in px
+//global root fontsize in px
 $fontsizeMobileSmall: 14px;
 $fontsizeMobile: 16px;
 $fontsizeTablet: 18px;
 $fontsizeLaptop: 24px;
 $fontsizeDesktop: 28px;
 
-//fontsize in em for texts
+//fontsize in rem for texts
 $fontsizeCopy: 1.1rem;
 $fontsizeH5: 1.1rem;
 $fontsizeH4: 1.1rem;
@@ -20,17 +20,7 @@ $fontsizeH2: 1.7rem;
 $fontsizeH1: 2.5rem;
 
 //margins
-$marginPadding: 20px;
 $margin1: 5vw;
 $margin2: $margin1*2;
 $margin3: $margin2*2;
 $margin4: $margin3*2;
-
-//element colors
-$colorMain: #000000;
-$colorHr: $colorMain;
-$colorAccordion: grey;
-$colorAccordionHighlight: $colorMain;
-$colorButton: $colorMain;
-$colorIconlist: $colorMain;
-$colorFrameBorder: $colorMain;

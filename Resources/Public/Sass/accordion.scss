@@ -1,3 +1,6 @@
+$accordionColor: #FFF;
+$accordionColorHighlight: #000;
+
 .accordion {
     position: relative;
     margin-bottom: 1px;
@@ -14,7 +17,7 @@
         display: block;
         position: relative;
         padding: 1em 3em;
-        background: $colorAccordion;
+        background: $accordionColor;
         font-weight: bold;
         color: #fff;
         cursor: pointer;
@@ -59,7 +62,7 @@
 
     &CE {
         &__col {
-            border-bottom: 4px solid $colorAccordionHighlight;
+            border-bottom: 4px solid $accordionColorHighlight;
             padding: 2em 0;
 
             &--noborder {
@@ -69,7 +72,7 @@
 
         &__icon {
             display: flex;
-            border-bottom: 4px solid $colorAccordionHighlight;
+            border-bottom: 4px solid $accordionColorHighlight;
             padding: 2em 1em;
             align-items: center;
 
@@ -86,7 +89,7 @@
 
     input:checked {
         &~.accordion__label {
-            background: $colorAccordionHighlight;
+            background: $accordionColorHighlight;
         }
 
         &~div {
