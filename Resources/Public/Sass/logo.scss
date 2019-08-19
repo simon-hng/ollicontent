@@ -12,10 +12,16 @@ $logoSizeLarge: 8rem;
     margin-left: -$logoSize/2;
     width: $logoSize;
     z-index: 100;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
 
     @media screen and (min-width: $screensizeTablet) {
         top: $LogoMarginDesktop;
         margin-left: -$logoSizeLarge/2;
         width: $logoSizeLarge;
+    }
+
+    &--hidden {
+        opacity: 0;
     }
 }
