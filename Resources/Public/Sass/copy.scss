@@ -1,0 +1,9 @@
+.copy {
+    &--padding {
+        padding: 2rem;
+
+        @media screen and (min-width: $screensizeTablet) {
+            padding: 5rem;
+        }
+    }
+}

@@ -35,9 +35,7 @@
             <flux:field.input name="copy.background" label="Background color">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-            <flux:field.input name="copy.padding" label="Padding in rem" minimum="0" maximum="20">
-                <flux:wizard.slider step="1" width="500" />
-            </flux:field.input>
+            <flux:field.checkbox name="copy.padding" label="Padding around the text" />
         </flux:form.sheet>
     </flux:form>
 </f:section>
@@ -63,12 +61,6 @@
             .copy--{record.uid} {
             color: {copy.text};
             background-color: {copy.background};
-            }
-        </f:if>
-
-        <f:if condition="{copy.padding}">
-            .copy__text--{record.uid} {
-            padding: {copy.padding}rem;
             }
         </f:if>
     </v:asset.style>
@@ -106,7 +98,8 @@
         <f:then>
             <div class="section__content copy copy--{record.uid}">
                 <f:for each="{copies}" as="content">
-                    <div class="copy__text copy__text--{record.uid}">
+                    <div
+                        class="copy__text copy__text--{record.uid} {f:if(condition: '{copy.padding}', then: 'copy--padding')}">
                         <f:format.html>{content.item.text}</f:format.html>
                     </div>
                 </f:for>
@@ -118,7 +111,8 @@
                 <div class="swiper-wrapper">
                     <f:for each="{copies}" as="content">
                         <div class="swiper-slide">
-                            <div class="copy__text copy__text--{record.uid}">
+                            <div
+                                class="copy__text copy__text--{record.uid} {f:if(condition: '{copy.padding}', then: 'copy--padding')}">
                                 <f:format.html>{content.item.text}</f:format.html>
                             </div>
                         </div>
