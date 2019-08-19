@@ -13,27 +13,23 @@
 
         <flux:form.sheet name="logo" label="Logo settings" description="Set the logo, logo when active and link"
             shortDescription="/">
-            <flux:field.file name="logo" label="logo" />
-            <flux:field.file name="logoActive" label="logo active" />
-            <flux:field.input name="link" label="link">
+            <flux:field.file name="logo.default" label="logo" />
+            <flux:field.file name="logo.active" label="logo active" />
+            <flux:field.input name="logo.link" label="link">
                 <flux:wizard.link />
             </flux:field.input>
         </flux:form.sheet>
 
-        <flux:form.sheet name="colors" label="Color settings"
-            description="Set the color of the Burger when active, on scroll, etc" shortDescription="/">
+        <flux:form.sheet name="settings" label="General settings" description="" shortDescription="">
             <flux:field.input name="settings.color" label="Burger color">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-
             <flux:field.input name="settings.colorActive" label="Burger color active">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-
             <flux:field.input name="settings.navColor" label="Navigation text color">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-
             <flux:field.input name="settings.bgColor" label="Navigation background color">
                 <flux:wizard.colorPicker />
             </flux:field.input>
@@ -75,8 +71,8 @@
     </v:asset.style>
 
     <v:asset.script name="burgerScript{record.uid}" fluid="1">
-        var headerLogo = '{logo}';
-        var headerLogoActive = '{logoActive}';
+        var headerLogo = '{logo.default}';
+        var headerLogoActive = '{logo.active}';
 
         window.addEventListener('scroll', function () {
         headerColor();
@@ -86,9 +82,9 @@
         burgerNav.addEventListener('click', toggleNav);
     </v:asset.script>
 
-    <f:if condition="{logo}">
-        <f:link.typolink parameter="{link}">
-            <f:image class="logo" treatIdAsReference="1" src="{logo}" />
+    <f:if condition="{logo.default}">
+        <f:link.typolink parameter="{logo.link}">
+            <f:image class="logo" treatIdAsReference="1" src="{logo.default}" />
         </f:link.typolink>
     </f:if>
 

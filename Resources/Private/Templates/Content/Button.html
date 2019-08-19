@@ -15,14 +15,17 @@
         <flux:field.input name="link" label="Link" required="1">
             <flux:wizard.link />
         </flux:field.input>
-        <flux:field.input name="settings.bgcolor" label="Background color">
-            <flux:wizard.colorPicker />
-        </flux:field.input>
-        <flux:field.select name="settings.alignment" label="Alignment" required="1" items="{
+
+        <flux:form.sheet name="settings" label="General settings" description="/" shortDescription="/">
+            <flux:field.input name="settings.bgcolor" label="Background color">
+                <flux:wizard.colorPicker />
+            </flux:field.input>
+            <flux:field.select name="settings.alignment" label="Alignment" required="1" items="{
                            0:{0:'left',1:'left'},
                            1:{0:'center',1:'center'},
                            2:{0:'right',1:'right'}
                            }" />
+        </flux:form.sheet>
     </flux:form>
 </f:section>
 

@@ -12,14 +12,17 @@
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-view_array-24px.svg" />
     </flux:form>
 
-    <flux:field.checkbox name="paddingtop" label="Large padding top?" default="false" />
     <flux:field.input name="headline" label="Title" />
-    <flux:field.input name="settings.color" label="Text color">
-        <flux:wizard.colorPicker />
-    </flux:field.input>
-    <flux:field.input name="settings.bgcolor" label="Background color">
-        <flux:wizard.colorPicker />
-    </flux:field.input>
+
+    <flux:form.sheet name="settings" label="General settings" description="/" shortDescription="/">
+        <flux:field.checkbox name="settings.paddingtop" label="Large padding top" default="false" />
+        <flux:field.input name="settings.color" label="Text color">
+            <flux:wizard.colorPicker />
+        </flux:field.input>
+        <flux:field.input name="settings.bgcolor" label="Background color">
+            <flux:wizard.colorPicker />
+        </flux:field.input>
+    </flux:form.sheet>
 
     <flux:grid>
         <flux:grid.row>
@@ -39,7 +42,7 @@
         <f:format.raw>
             {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
             {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
-            {f:if(condition: '{paddingtop}', then: 'padding-top: 25vh;')}
+            {f:if(condition: '{settings.paddingtop}', then: 'padding-top: 25vh;')}
         </f:format.raw>
         }
     </v:asset.style>
