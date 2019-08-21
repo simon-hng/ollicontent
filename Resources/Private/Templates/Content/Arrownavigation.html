@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3\Flux/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+    <flux:form id="arrow" label="Navigation arrows" description="Go to next or previous page">
+        <flux:form.option name="group" value="Structure" />
+        <flux:form.option name="Fluidcontent" value="{sorting: 150}" />
+        <flux:form.option name="icon"
+            value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-compare_arrows-24px.svg" />
+
+        <flux:field.file name="arrow" label="Arrow svg" />
+
+        <flux:form.sheet name="link" label="Links" description="Set arrow targets" shortDescription="">
+            <flux:field.input name="link.previous" label="Link previous" required="true">
+                <flux:wizard.link />
+            </flux:field.input>
+            <flux:field.input name="link.next" label="Link next" required="true">
+                <flux:wizard.link />
+            </flux:field.input>
+        </flux:form.sheet>
+
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    <b>Navigation arrows</b>
+</f:section>
+
+<f:section name="Main">
+    <v:asset.style name="arrownavigation{record.uid}" fluid="true">
+    </v:asset.style>
+
+    <div class="arrownavigation">
+        <f:link.typolink parameter="{link.previous}">
+            <f:image class="arrownavigation__prev" src="{arrow}" treatIdAsReference="1" />
+        </f:link.typolink>
+        <f:link.typolink parameter="{link.next}">
+            <f:image class="arrownavigation__next" src="{arrow}" treatIdAsReference="1" />
+        </f:link.typolink>
+    </div>
+</f:section>
+
+</html>

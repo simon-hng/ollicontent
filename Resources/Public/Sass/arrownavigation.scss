@@ -1,0 +1,8 @@
+.arrownavigation {
+    display: flex;
+    justify-content: space-between;
+
+    &__prev {
+        transform: scale(-1, 1);
+    }
+}
