@@ -14,6 +14,9 @@
         <flux:form.section name="copies">
             <flux:form.object name="item" label="Copy text">
                 <flux:field.text name="text" label="Text" enableRichText="1" />
+                <flux:field.input name="link" label="Link">
+                    <flux:wizard.link />
+                </flux:field.input>
             </flux:form.object>
         </flux:form.section>
 
@@ -95,10 +98,12 @@
         <f:then>
             <div class="section__content copy copy--{record.uid}">
                 <f:for each="{copies}" as="content">
-                    <div
-                        class="copy__text copy__text--{record.uid} {f:if(condition: '{settings.padding}', then: 'copy--padding')}">
-                        <f:format.html>{content.item.text}</f:format.html>
-                    </div>
+                    <f:link.typolink class="copy__link" parameter="{content.item.link}">
+                        <div
+                            class="copy__text copy__text--{record.uid} {f:if(condition: '{settings.padding}', then: 'copy--padding')}">
+                            <f:format.html>{content.item.text}</f:format.html>
+                        </div>
+                    </f:link.typolink>
                 </f:for>
             </div>
         </f:then>
@@ -108,10 +113,12 @@
                 <div class="swiper-wrapper">
                     <f:for each="{copies}" as="content">
                         <div class="swiper-slide">
-                            <div
-                                class="copy__text copy__text--{record.uid} {f:if(condition: '{settings.padding}', then: 'copy--padding')}">
-                                <f:format.html>{content.item.text}</f:format.html>
-                            </div>
+                            <f:link.typolink class="copy__link" parameter="{content.item.link}">
+                                <div
+                                    class="copy__text copy__text--{record.uid} {f:if(condition: '{settings.padding}', then: 'copy--padding')}">
+                                    <f:format.html>{content.item.text}</f:format.html>
+                                </div>
+                            </f:link.typolink>
                         </div>
                     </f:for>
                 </div>
