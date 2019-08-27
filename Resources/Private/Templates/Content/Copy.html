@@ -44,7 +44,7 @@
     <b>copy</b>
     <f:for each="{copies}" as="content">
         <div style="padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
-            <f:format.html>{content.item.text}</f:format.html>
+            <f:format.htmlentitiesDecode>{content.item.text}</f:format.htmlentitiesDecode>
         </div>
     </f:for>
 </f:section>
