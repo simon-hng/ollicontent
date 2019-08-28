@@ -11,17 +11,8 @@
         <flux:form.option name="icon"
             value="EXT:ollicontent/Resources/Public/Icons/Contentelements/baseline-compare_arrows-24px.svg" />
 
-        <flux:field.file name="arrow" label="Arrow svg" />
-
-        <flux:form.sheet name="link" label="Links" description="Set arrow targets" shortDescription="">
-            <flux:field.input name="link.previous" label="Link previous" required="true">
-                <flux:wizard.link />
-            </flux:field.input>
-            <flux:field.input name="link.next" label="Link next" required="true">
-                <flux:wizard.link />
-            </flux:field.input>
-        </flux:form.sheet>
-
+        <flux:field.file name="arrow" label="Arrow svg"
+            default="EXT:ollicontent/Resources/Public/Icons/Global/arrow.svg" />
     </flux:form>
 </f:section>
 
@@ -30,14 +21,19 @@
 </f:section>
 
 <f:section name="Main">
-    <div class="arrownavigation">
-        <f:link.typolink parameter="{link.previous}">
-            <f:image class="arrownavigation__prev" src="{arrow}" treatIdAsReference="1" />
-        </f:link.typolink>
-        <f:link.typolink parameter="{link.next}">
-            <f:image class="arrownavigation__next" src="{arrow}" treatIdAsReference="1" />
-        </f:link.typolink>
-    </div>
+    <v:page.menu.browse>
+        <div class="arrownavigation">
+            <f:link.typolink
+                parameter="{f:if(condition: '{menu.prev.link}', then: '{menu.prev.link}', else: '{menu.last.link}')}">
+                <f:image class="arrownavigation__prev" src="{arrow}" treatIdAsReference="1" />
+            </f:link.typolink>
+
+            <f:link.typolink
+                parameter="{f:if(condition: '{menu.next.link}', then: '{menu.next.link}', else: '{menu.first.link}')}">
+                <f:image class="arrownavigation__next" src="{arrow}" treatIdAsReference="1" />
+            </f:link.typolink>
+        </div>
+    </v:page.menu.browse>
 </f:section>
 
 </html>
