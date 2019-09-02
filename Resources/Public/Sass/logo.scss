@@ -21,6 +21,11 @@ $logoSizeLarge: 8rem;
         width: $logoSizeLarge;
     }
 
+    &__default,
+    &__alternative {
+        position: absolute;
+    }
+
     &--hidden {
         opacity: 0;
     }

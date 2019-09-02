@@ -71,20 +71,18 @@
     </v:asset.style>
 
     <v:asset.script name="burgerScript{record.uid}" fluid="1">
-        var headerLogo = '{logo.default}';
-        var headerLogoActive = '{logo.active}';
-
         window.addEventListener('scroll', function () {
         headerColor();
-        hideLogo();
+        checkLogo();
         });
 
         burgerNav.addEventListener('click', toggleNav);
     </v:asset.script>
 
     <f:if condition="{logo.default}">
-        <f:link.typolink parameter="{logo.link}">
-            <f:image class="logo" treatIdAsReference="1" src="{logo.default}" />
+        <f:link.typolink class="logo" parameter="{logo.link}">
+            <f:image class="logo__default" src="{logo.default}" treatIdAsReference="1" />
+            <f:image class="logo__alternative logo--hidden" src="{logo.active}" treatIdAsReference="1" />
         </f:link.typolink>
     </f:if>
 
