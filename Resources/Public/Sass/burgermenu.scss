@@ -53,6 +53,7 @@ $burgerMarginXDesktop: 10vw;
     background-color: #FFF;
     transition-duration: .5s;
     z-index: 100;
+    overflow: hidden;
 
     &__list {
         list-style: none;
