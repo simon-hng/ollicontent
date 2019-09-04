@@ -40,14 +40,14 @@
 <f:section name="Main">
     <v:asset.style name="section{record.uid}" fluid="true">
         <f:if condition="{settings}">
+            .section--{record.uid} {
             <f:format.raw>
-                .section--{record.uid} {
                 {f:if(condition: '{settings.paddingBottom}', then: 'padding-bottom: {settings.paddingBottom};')}
                 {f:if(condition: '{settings.paddingTop}', then: 'padding-top: {settings.paddingTop};')}
                 {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
                 {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
-                }
             </f:format.raw>
+            }
         </f:if>
     </v:asset.style>
 
