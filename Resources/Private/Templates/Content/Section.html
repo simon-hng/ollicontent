@@ -15,7 +15,8 @@
     <flux:field.input name="headline" label="Title" />
 
     <flux:form.sheet name="settings" label="General settings" description="/" shortDescription="/">
-        <flux:field.checkbox name="settings.paddingtop" label="Large padding top" default="false" />
+        <flux:field.input name="settings.paddingTop" label="Padding top" />
+        <flux:field.input name="settings.paddingBottom" label="Padding bottom" />
         <flux:field.input name="settings.color" label="Text color">
             <flux:wizard.colorPicker />
         </flux:field.input>
@@ -38,13 +39,14 @@
 
 <f:section name="Main">
     <v:asset.style name="section{record.uid}" fluid="true">
-        .section--{record.uid} {
-        <f:format.raw>
+        <f:if condition="{settings}">
+            .section--{record.uid} {
+            {f:if(condition: '{settings.paddingBottom}', then: 'padding-bottom: {settings.paddingBottom};')}
+            {f:if(condition: '{settings.paddingTop}', then: 'padding-top: {settings.paddingTop};')}
             {f:if(condition: '{settings.bgcolor}', then: 'background-color:{settings.bgcolor};')}
             {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
-            {f:if(condition: '{settings.paddingtop}', then: 'padding-top: 25vh;')}
-        </f:format.raw>
-        }
+            }
+        </f:if>
     </v:asset.style>
 
     <section class="section section--{record.uid}">
