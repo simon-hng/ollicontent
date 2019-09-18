@@ -1,0 +1,56 @@
+<!-- Add #Settings to #Configuration-->
+<!-- Add #Styles to top of #Main-->
+<!-- Add #Scripts to bottom of #Main-->
+
+<f:section name="Settings">
+    <flux:form.sheet name="swiperSettings" label="Swiper settings" description="" shortDescription="">
+        <flux:field.checkbox name="swiperSettings.pagination" label="Pagination points" default="0" />
+        <flux:field.checkbox name="swiperSettings.navigation" label="Navigation arrows" default="1" />
+        <flux:field.input name="swiperSettings.autoplay" label="Autoplay" />
+        <flux:field.select name="swiperSettings.effect" label="Transition effect" renderType="selectSingle"
+            items="{0:{0:'Slide',1:'slide'},1:{0:'Fade',1:'fade'}}" />
+        <flux:field.file name="swiperSettings.arrow" label="Arrow svg pointing right" allowed="jpg,png,gif,svg" />
+    </flux:form.sheet>
+</f:section>
+
+<f:section name="Initiation">
+    <v:asset.style name="swiperStyles{record.uid}" fluid="true">
+        <f:if condition="{swiperSettings.arrow}">
+        .swiper-button-prev--{record.uid}, .swiper-button-next--{record.uid} {
+            background-image: url({settings.arrow});
+        }
+        </f:if>
+    </v:asset.style>
+
+    <v:asset.script name="swiperScript{record.uid}" fluid="true">
+        function initSwiper{record.uid}() {
+
+            var swiperContainer = '.swiper-container--{record.uid}';
+            var swiperPaginationNext = '.swiper-button-next--{record.uid}'
+            var swiperPaginationPrev = '.swiper-button-prev--{record.uid}'
+            var swiperEffect = '{swiperSettings.effect}';
+
+            var swiper{record.uid} = new Swiper(swiperContainer, {
+                effect: swiperEffect,
+                loop: true,
+                <f:if condition="{swiperSettings.autoplay}">
+                autoplay: {
+                    delay: <v:variable.get name="swiperSettings.autoplay" />,
+                    disableOnInteraction: false,
+                },
+                </f:if>
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                navigation: {
+                    nextEl: swiperPaginationNext,
+                    prevEl: swiperPaginationPrev,
+                },
+            });
+        };
+
+        initSwiper{record.uid}()
+        console.log("help");
+    </v:asset.script>
+</f:section>

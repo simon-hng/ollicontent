@@ -24,18 +24,13 @@
         </flux:form.section>
 
         <flux:form.sheet name="settings" label="General settings" description="" shortDescription="">
-            <flux:field.checkbox name="settings.pagination" label="Pagination points" default="0" />
-            <flux:field.checkbox name="settings.navigation" label="Navigation arrows" default="1" />
-            <flux:field.input name="settings.autoplay" label="Autoplay duration" />
-            <flux:field.select name="settings.effect" label="Transition effect" renderType="selectSingle"
-                items="{0:{0:'Slide',1:'slide'},1:{0:'Fade',1:'fade'}}" />
-
-            <flux:field.file name="settings.arrow" label="Arrow icon" allowed="jpg,png,gif,svg" />
-            <flux:field.input name="settings.color" label="Text color">
+            <flux:field.input name="settings.color" label="Text color" default="#FFFFFF">
                 <flux:wizard.colorPicker />
             </flux:field.input>
-            <flux:field.input name="settings.bgcolor" label="Background color in rgba(r, g, b, a)" />
+            <flux:field.input name="settings.bgcolor" label="Background color in rgba(r, g, b, a)" default="0, 0, 0, .8" />
         </flux:form.sheet>
+
+        <f:render section="Settings" partial="SwiperController" arguments="{_all}" />
     </flux:form>
 </f:section>
 
@@ -71,48 +66,13 @@
     <v:asset.style name="img{record.uid}" fluid="true">
         <f:if condition="{settings.bgcolor || settings.color}">
             .img__overlay--{record.uid} {
-            <f:format.raw>
-                {f:if(condition: '{settings.bgcolor}', then: 'background-color:rgba({settings.bgcolor});')}
-                {f:if(condition: '{settings.color}', then: 'color:{settings.color};')}
-            </f:format.raw>
-            }
-        </f:if>
-
-        <f:if condition="{settings.arrow}">
-            .swiper-button-prev--{record.uid}, .swiper-button-next--{record.uid} {
-            background-image: url({settings.arrow});
+                background-color:rgba({settings.bgcolor});
+                color:{settings.color};
             }
         </f:if>
     </v:asset.style>
 
-    <v:asset.script name="imgScript{record.uid}" fluid="1">
-        var sliderEffect = '{settings.effect}';
-        <f:if condition="{settings.autoplay}">var autoplayDuration = {settings.autoplay};</f:if>
-
-        var swiper{record.uid} = new Swiper('.swiper-container--{record.uid}', {
-        effect: sliderEffect,
-        loop: true,
-        <f:if condition="{settings.autoplay}">
-            autoplay: {
-            delay: autoplayDuration,
-            disableOnInteraction: false,
-            },
-        </f:if>
-
-        <f:if condition="{settings.pagination}">
-            pagination: {
-            el: '.swiper-pagination',
-            },
-        </f:if>
-
-        <f:if condition="{settings.navigation}">
-            navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            },
-        </f:if>
-        });
-    </v:asset.script>
+    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
 
     <f:if condition="{images -> f:count()} <= 1">
         <f:then>
@@ -153,11 +113,11 @@
                     </f:for>
                 </div>
 
-                <f:if condition="{settings.pagination} == true">
+                <f:if condition="{swiperSettings.pagination} == true">
                     <div class="swiper-pagination"></div>
                 </f:if>
 
-                <f:if condition="{settings.navigation} == true">
+                <f:if condition="{swiperSettings.navigation} == true">
                     <div class="swiper-button-next swiper-button-next--{record.uid}"></div>
                     <div class="swiper-button-prev swiper-button-prev--{record.uid}"></div>
                 </f:if>
