@@ -31,6 +31,8 @@
         </flux:form.sheet>
 
         <f:render section="Settings" partial="SwiperController" arguments="{_all}" />
+
+        <f:render section="Settings" partial="PositionController" arguments="{_all}" />
     </flux:form>
 </f:section>
 
@@ -63,6 +65,10 @@
 </f:section>
 
 <f:section name="Main">
+    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
+
+    <f:render section="Initiation" partial="PositionController" arguments="{_all}" />
+    
     <v:asset.style name="img{record.uid}" fluid="true">
         <f:if condition="{settings.bgcolor || settings.color}">
             .img__overlay--{record.uid} {
@@ -71,8 +77,6 @@
             }
         </f:if>
     </v:asset.style>
-
-    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
 
     <f:if condition="{images -> f:count()} <= 1">
         <f:then>

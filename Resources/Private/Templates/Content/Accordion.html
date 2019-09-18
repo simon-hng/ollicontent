@@ -33,6 +33,8 @@
                 <flux:wizard.colorPicker />
             </flux:field.input>
         </flux:form.sheet>
+
+        <f:render section="Settings" partial="PositionController" arguments="{_all}" />
     </flux:form>
 
     <flux:grid>
@@ -48,6 +50,9 @@
 </f:section>
 
 <f:section name="Main">
+    <f:render section="Initiation" partial="PositionController" arguments="{_all}" />
+
+    <!-- TODO: remove conditional clauses -->
     <v:asset.style name="accordion{record.uid}" fluid="true">
         .accordion__label--{record.uid} {
         <f:format.raw>

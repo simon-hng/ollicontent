@@ -13,6 +13,8 @@
 
         <flux:field.file name="arrow" label="Arrow svg"
             default="EXT:ollicontent/Resources/Public/Icons/Global/arrow.svg" />
+
+        <f:render section="Settings" partial="PositionController" arguments="{_all}" />
     </flux:form>
 </f:section>
 
@@ -21,6 +23,8 @@
 </f:section>
 
 <f:section name="Main">
+    <f:render section="Initiation" partial="PositionController" arguments="{_all}" />
+
     <v:page.menu.browse>
         <div class="arrownavigation">
             <f:link.typolink

@@ -1,13 +1,9 @@
-$sectionMarginMobile: 1rem;
-$sectionMargin: 6rem;
 $sectionHeadlineMargin: 2rem;
 
 .section {
-    padding: 0 $sectionMarginMobile;
-
-    @media screen and (min-width: $screensizeLaptop) {
-        padding: 0 $margin3;
-    }
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
 
     &__headline {
         margin-bottom: $sectionHeadlineMargin;

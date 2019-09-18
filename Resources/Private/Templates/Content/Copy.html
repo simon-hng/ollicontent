@@ -32,6 +32,8 @@
         </flux:form.sheet>
 
         <f:render section="Settings" partial="SwiperController" arguments="{_all}" />
+
+        <f:render section="Settings" partial="PositionController" arguments="{_all}" />
     </flux:form>
 </f:section>
 
@@ -46,14 +48,16 @@
 </f:section>
 
 <f:section name="Main">
+    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
+    
+    <f:render section="Initiation" partial="PositionController" arguments="{_all}" />
+
     <v:asset.style name="copy{record.uid}" fluid="true">
         .copy--{record.uid} {
             color: {settings.color};
             background-color: {settings.backgroundcolor};
         }
     </v:asset.style>
-
-    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
 
     <f:if condition="{copies -> f:count()} <= 1">
         <f:then>

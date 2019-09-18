@@ -1,0 +1,35 @@
+<f:section name="Settings">
+    <flux:form.sheet name="positionSettings" label="Position settings" description="Viewport larger than 1050px" shortDescription="">
+        <flux:field.input name="positionSettings.start" label="Start column" default="2"/>
+        <flux:field.input name="positionSettings.end" label="End column" default="12" />
+        
+        <flux:field.input name="positionSettings.paddingTop" label="Padding top" default="0rem" />
+        <flux:field.input name="positionSettings.paddingBottom" label="Padding bottom" default="0rem" />
+    </flux:form.sheet>
+
+    <flux:form.sheet name="positionSettingsMobile" label="Position settings mobile" description="Viewport smaller than 1050px" shortDescription="">
+        <flux:field.input name="positionSettingsMobile.start" label="Start column" default="2"/>
+        <flux:field.input name="positionSettingsMobile.end" label="End column" default="12" />
+        
+        <flux:field.input name="positionSettingsMobile.paddingTop" label="Padding top" default="0rem" />
+        <flux:field.input name="positionSettingsMobile.paddingBottom" label="Padding bottom" default="0rem" />
+    </flux:form.sheet>
+</f:section>
+
+<f:section name="Initiation">
+    <v:asset.style name="positionStyles{record.uid}" fluid="true">
+    #c{record.uid} {
+        padding-top: {positionSettings.paddingTop};
+        padding-bottom: {positionSettings.paddingBottom};
+        grid-column: {positionSettings.start} / {positionSettings.end};
+    }
+
+    @media screen and (min-width: 1050px){
+        #c{record.uid} {
+            padding-top: {positionSettingsMobile.paddingTop};
+            padding-bottom: {positionSettingsMobile.paddingBottom};
+            grid-column: {positionSettingsMobile.start} / {positionSettings.end};
+        }
+    }
+    </v:asset.style>
+</f:section>
