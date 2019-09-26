@@ -38,7 +38,6 @@
 
 <f:section name="Preview">
     <b>image slider</b>
-
     <div style="display: flex; flex-wrap: wrap;">
         <f:for each="{images}" as="image">
             <div style="width: 30%; padding: 2%; margin-top: 45px; border: 1px solid #ccc;">
@@ -53,6 +52,9 @@
             </div>
         </f:for>
     </div>
+    <b>Columns</b><br>
+    mobile: {positionSettingsMobile.start} / {positionSettingsMobile.end}<br>
+    desktop: {positionSettings.start} / {positionSettings.end}
 </f:section>
 
 <f:section name="ImgOverlay">
