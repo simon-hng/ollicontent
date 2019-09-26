@@ -1,21 +1,36 @@
-<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
 	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
 	xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
 
-	<f:layout name="Page" />
+<f:layout name="Page" />
 
-	<f:section name="Configuration">
-		<flux:form id="standard">
-		</flux:form>
+<f:section name="Configuration">
+	<flux:form id="standard">
+		<flux:field.select name="settings.font" label="Font" required="1" items="{
+				0:{0:'Inter',1:'Inter'},
+				1:{0:'Sectra',1:'Sectra'},
+				2:{0:'Roboto',1:'Roboto'},
+				3:{0:'Lab Grotesque',1:'LabGrotesque'}
+				}" />
+	</flux:form>
 
-		<flux:grid>
-			<flux:grid.row>
-				<flux:grid.column colPos="0" colspan="1" name="main" />
-			</flux:grid.row>
-		</flux:grid>
-	</f:section>
+	<flux:grid>
+		<flux:grid.row>
+			<flux:grid.column colPos="0" colspan="1" name="main" />
+		</flux:grid.row>
+	</flux:grid>
+</f:section>
 
-	<f:section name="Main">
-		<v:content.render column="0" />
-	</f:section>
-</div>
+<f:section name="Main">
+	<v:asset.style name="page{page.uid}" fluid="true" standalone="true">
+	@import url('{v:extension.path.resources(extensionName: 'ollicontent', path: 'Resources/Public/Fonts/')}{settings.font}/index.css')
+	html, body {
+		display: none;
+		font-family: {settings.font};
+	}
+	</v:asset.style>
+
+	<v:content.render column="0" />
+</f:section>
+
+</html>
