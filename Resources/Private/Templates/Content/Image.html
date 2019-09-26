@@ -65,8 +65,6 @@
 </f:section>
 
 <f:section name="Main">
-    <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
-
     <f:render section="Initiation" partial="PositionController" arguments="{_all}" />
     
     <v:asset.style name="img{record.uid}" fluid="true">
@@ -97,6 +95,8 @@
         </f:then>
 
         <f:else>
+            <f:render section="Initiation" partial="SwiperController" arguments="{_all}" />
+
             <div class="section__content swiper-container swiper-container--{record.uid}">
                 <div class="swiper-wrapper">
                     <f:for each="{images}" as="image">
