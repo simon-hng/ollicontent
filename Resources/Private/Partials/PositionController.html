@@ -19,16 +19,16 @@
 <f:section name="Initiation">
     <v:asset.style name="positionStyles{record.uid}" fluid="true" standalone="true">
     #c{record.uid} {
-        padding-top: {positionSettings.paddingTop};
-        padding-bottom: {positionSettings.paddingBottom};
-        grid-column: {positionSettings.start} / {positionSettings.end};
+        padding-top: {positionSettingsMobile.paddingTop};
+        padding-bottom: {positionSettingsMobile.paddingBottom};
+        grid-column: {positionSettingsMobile.start} / {positionSettings.end};
     }
 
     @media screen and (min-width: 1050px){
         #c{record.uid} {
-            padding-top: {positionSettingsMobile.paddingTop};
-            padding-bottom: {positionSettingsMobile.paddingBottom};
-            grid-column: {positionSettingsMobile.start} / {positionSettingsMobile.end};
+            padding-top: {positionSettings.paddingTop};
+            padding-bottom: {positionSettings.paddingBottom};
+            grid-column: {positionSettings.start} / {positionSettings.end};
         }
     }
     </v:asset.style>
