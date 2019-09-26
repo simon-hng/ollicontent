@@ -27,8 +27,8 @@
     </flux:form.sheet>
 
     <flux:form.sheet name="settingsMobile" label="Mobile settings" description="Viewport smaller than 1050px" shortDescription="">
-        <flux:field.input name="settingsMobile.paddingTop" label="Padding top" default="0" />
-        <flux:field.input name="settingsMobile.paddingBottom" label="Padding bottom" default="0" />
+        <flux:field.input name="settingsMobile.paddingTop" label="Padding top" />
+        <flux:field.input name="settingsMobile.paddingBottom" label="Padding bottom" />
         <flux:field.input name="settingsMobile.width" label="Width" default="70%" />
     </flux:form.sheet>
 
@@ -57,8 +57,12 @@
 
         @media screen and (min-width: 1050px) <f:format.raw>{</f:format.raw> 
             .section--{record.uid} <f:format.raw>{</f:format.raw>
+                <f:if condition="{settings.paddingBottom}">
                 padding-bottom: {settings.paddingBottom};
+                </f:if>
+                <f:if condition="{settings.paddingTop}">
                 padding-top: {settings.paddingTop};
+                </f:if>
                 width: {settings.width};
             }
         } 
