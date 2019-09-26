@@ -8,11 +8,11 @@
     </flux:form.sheet>
 
     <flux:form.sheet name="positionSettingsMobile" label="Position settings mobile" description="Viewport smaller than 1050px" shortDescription="">
-        <flux:field.input name="positionSettingsMobile.start" label="Start column" default="2"/>
-        <flux:field.input name="positionSettingsMobile.end" label="End column" default="12" />
+        <flux:field.input name="positionSettingsMobile.start" label="Start column" />
+        <flux:field.input name="positionSettingsMobile.end" label="End column" />
         
-        <flux:field.input name="positionSettingsMobile.paddingTop" label="Padding top" default="0rem" />
-        <flux:field.input name="positionSettingsMobile.paddingBottom" label="Padding bottom" default="0rem" />
+        <flux:field.input name="positionSettingsMobile.paddingTop" label="Padding top" />
+        <flux:field.input name="positionSettingsMobile.paddingBottom" label="Padding bottom" />
     </flux:form.sheet>
 </f:section>
 
@@ -28,7 +28,7 @@
         #c{record.uid} {
             padding-top: {positionSettingsMobile.paddingTop};
             padding-bottom: {positionSettingsMobile.paddingBottom};
-            grid-column: {positionSettingsMobile.start} / {positionSettings.end};
+            grid-column: {positionSettingsMobile.start} / {positionSettingsMobile.end};
         }
     }
     </v:asset.style>
