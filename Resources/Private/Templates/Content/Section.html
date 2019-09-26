@@ -17,12 +17,19 @@
     <flux:form.sheet name="settings" label="General settings" description="" shortDescription="">
         <flux:field.input name="settings.paddingTop" label="Padding top" default="0" />
         <flux:field.input name="settings.paddingBottom" label="Padding bottom" default="0" />
+        <flux:field.input name="settings.width" label="Width" default="70%" />
         <flux:field.input name="settings.color" label="Text color" default="#000000">
             <flux:wizard.colorPicker />
         </flux:field.input>
         <flux:field.input name="settings.bgcolor" label="Background color" default="#FFFFFF">
             <flux:wizard.colorPicker />
         </flux:field.input>
+    </flux:form.sheet>
+
+    <flux:form.sheet name="settingsMobile" label="Mobile settings" description="Viewport smaller than 1050px" shortDescription="">
+        <flux:field.input name="settingsMobile.paddingTop" label="Padding top" default="0" />
+        <flux:field.input name="settingsMobile.paddingBottom" label="Padding bottom" default="0" />
+        <flux:field.input name="settingsMobile.width" label="Width" default="70%" />
     </flux:form.sheet>
 
     <flux:grid>
@@ -41,11 +48,20 @@
 
     <v:asset.style name="section{record.uid}" fluid="true">
         .section--{record.uid} {
-            padding-bottom: {settings.paddingBottom};
-            padding-top: {settings.paddingTop};
+            padding-bottom: {settingsMobile.paddingBottom};
+            padding-top: {settingsMobile.paddingTop};
+            width: {settingsMobile.width};
             background-color: {settings.bgcolor};
             color: {settings.color};
         }
+
+        @media screen and (min-width: 1050px) <f:format.raw>{</f:format.raw> 
+            .section--{record.uid} <f:format.raw>{</f:format.raw>
+                padding-bottom: {settings.paddingBottom};
+                padding-top: {settings.paddingTop};
+                width: {settings.width};
+            }
+        } 
     </v:asset.style>
 
     <section class="section section--{record.uid}">
