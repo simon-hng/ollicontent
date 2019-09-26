@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("LabGrotesque-Thin.eot");
+  src: url("LabGrotesque-Thin.woff2") format("woff2"),
+       url("LabGrotesque-Thin.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("LabGrotesque-ThinItalic.eot");
+  src: url("LabGrotesque-ThinItalic.woff2") format("woff2"),
+       url("LabGrotesque-ThinItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("LabGrotesque-Light.eot");
+  src: url("LabGrotesque-Light.woff2") format("woff2"),
+       url("LabGrotesque-Light.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("LabGrotesque-LightItalic.eot");
+  src: url("LabGrotesque-LightItalic.woff2") format("woff2"),
+       url("LabGrotesque-LightItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("LabGrotesque-Regular.eot");
+  src: url("LabGrotesque-Regular.woff2") format("woff2"),
+       url("LabGrotesque-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("LabGrotesque-Italic.eot");
+  src: url("LabGrotesque-Italic.woff2") format("woff2"),
+       url("LabGrotesque-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("LabGrotesque-Medium.eot");
+  src: url("LabGrotesque-Medium.woff2") format("woff2"),
+       url("LabGrotesque-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("LabGrotesque-MediumItalic.eot");
+  src: url("LabGrotesque-MediumItalic.woff2") format("woff2"),
+       url("LabGrotesque-MediumItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("LabGrotesque-Bold.eot");
+  src: url("LabGrotesque-Bold.woff2") format("woff2"),
+       url("LabGrotesque-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("LabGrotesque-BoldItalic.eot");
+  src: url("LabGrotesque-BoldItalic.woff2") format("woff2"),
+       url("LabGrotesque-BoldItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("LabGrotesque-Black.eot");
+  src: url("LabGrotesque-Black.woff2") format("woff2"),
+       url("LabGrotesque-Black.woff") format("woff");
+}
+@font-face {
+  font-family: 'LabGrotesque';
+  font-style:  italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("LabGrotesque-BlackItalic.eot");
+  src: url("LabGrotesque-BlackItalic.woff2") format("woff2"),
+       url("LabGrotesque-BlackItalic.woff") format("woff");
+}

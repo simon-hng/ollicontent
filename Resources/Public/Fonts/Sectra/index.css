@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Sectra';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('GT-Sectra-Bold.eot'); /* IE9 Compat Modes */
+  src: url('GT-Sectra-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('GT-Sectra-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('GT-Sectra-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}

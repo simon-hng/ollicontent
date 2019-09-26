@@ -1,6 +1,7 @@
 html,
 body {
     font-size: $fontsizeMobileSmall;
+    font-weight: normal;
 
     @media screen and (min-width: $screensizeMobile) {
         font-size: $fontsizeMobile;
@@ -19,7 +20,7 @@ img {
 
 p {
     font-size: $fontsizeCopy;
-} 
+}
 
 h1 {
     font-size: $fontsizeH1;
