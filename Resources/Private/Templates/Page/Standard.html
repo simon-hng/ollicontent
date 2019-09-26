@@ -22,10 +22,9 @@
 </f:section>
 
 <f:section name="Main">
+	<v:asset.style path="EXT:ollicontent/Resources/Public/Fonts/{settings.font}/index.css" />
 	<v:asset.style name="page{page.uid}" fluid="true" standalone="true">
-	@import url('{v:extension.path.resources(extensionName: 'ollicontent', path: 'Resources/Public/Fonts/')}{settings.font}/index.css')
 	html, body {
-		display: none;
 		font-family: {settings.font};
 	}
 	</v:asset.style>
